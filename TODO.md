@@ -1,0 +1,10 @@
+- [ ] Learn Vagrant
+- [ ] Learn ansible basics
+- [ ] Create a base setup for testing using vagrant
+- [ ] Create base role
+  - [ ] Install base system
+  - [ ] Install network tools
+  - [ ] Install X
+  - [ ] Install browser
+  - [ ] Configure SSH keys
+- [ ] ...

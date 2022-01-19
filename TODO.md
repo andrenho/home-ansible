@@ -1,6 +1,7 @@
-- [ ] Learn Vagrant
 - [ ] Learn ansible basics
-- [ ] Create a base setup for testing using vagrant
+- [ ] Create a base setup for testing using docker
+  - [ ] Create arch dist
+    - [ ] Setup fixed IP
 - [ ] Create base role
   - [ ] Install base system
   - [ ] Install network tools

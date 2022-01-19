@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 usage() {
   echo "Usage: $0 [start|stop|info|login] DIST"
   exit 1

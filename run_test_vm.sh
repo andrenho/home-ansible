@@ -10,7 +10,7 @@ usage() {
 if [ "$#" -ne 2 ]; then usage; fi
 
 case "$1" in
-  start) cd test-vm/$2 && vagrant up && cd ../.. ;;
+  start) cd test-vm/$2 && vagrant up && cd ../.. && ansible test -m ping ;;
    stop) cd test-vm/$2 && vagrant destroy default && cd ../.. ;;
    info) cd test-vm/$2 && vagrant global-status && cd ../.. ;;
   login) cd test-vm/$2 && vagrant ssh && cd ../.. ;;

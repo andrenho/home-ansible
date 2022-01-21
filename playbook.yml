@@ -1,0 +1,18 @@
+---
+- name: All hosts up-to-date
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: Update keys
+      shell: pacman-key --populate > ~/.pacman-key
+      args:
+        creates: ~/.pacman-key
+      run_once: true
+
+    - name: Full system upgrade
+      pacman:
+        update_cache: yes
+        upgrade: yes
+

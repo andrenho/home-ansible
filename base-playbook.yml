@@ -63,9 +63,6 @@
         aur_only: yes
       become_user: "{{ admin_user }}"
 
-    # TODO - update yay packages
-    # TODO - install yay, other packages, aws-cli
-    # TODO - configure sudo
     # TODO - create ssh keys
     # TODO - configure admin user (dotfiles, remove useless dirs)
     # TODO - get git contrib file from internet

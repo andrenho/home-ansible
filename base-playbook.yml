@@ -1,6 +1,7 @@
 ---
-- name: Create a base install
+- name: Install basic system
   hosts: all
+  become: yes
 
   vars_files:
     - variables.yml
@@ -8,34 +9,63 @@
   tasks:
 
     - name: Update keys
-      become: yes
       shell: pacman-key --populate > ~/.pacman-key
       args:
         creates: ~/.pacman-key
 
     - name: Full system upgrade
-      become: yes
       pacman:
         update_cache: yes
         upgrade: yes
 
     - name: Install required packages
-      become: yes
       pacman:
-        name: [ 'unzip', 'sudo', 'vim' ]
+        name: [
+          'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
+          'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
+          'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi'
+        ]
         state: present
 
     - name: Create sudoers group
-      become: yes
       group:
-        name: sudoers
+        name: wheel
         state: present
 
     - name: Create admin user
-      become: yes
       user:
         name: "{{ admin_user }}"
-        groups: users,sudoers
+        groups: users,wheel
         append: yes
+        createhome: yes
         # ssh_key_file
         password: "{{ admin_password }}"
+
+    - name: Allow 'wheel' group to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^%wheel'
+        line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: Install AUR packages
+      kewlfft.aur.aur:
+        name: [ 'aws-cli-v2-bin', 'yay-bin' ]
+        use: makepkg
+        state: present
+      become_user: "{{ admin_user }}"
+
+    - name: Install AUR packages
+      kewlfft.aur.aur:
+        upgrade: yes
+        use: yay
+        aur_only: yes
+      become_user: "{{ admin_user }}"
+
+    # TODO - update yay packages
+    # TODO - install yay, other packages, aws-cli
+    # TODO - configure sudo
+    # TODO - create ssh keys
+    # TODO - configure admin user (dotfiles, remove useless dirs)
+    # TODO - get git contrib file from internet

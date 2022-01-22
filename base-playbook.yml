@@ -23,7 +23,7 @@
         name: [
           'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
           'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
-          'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi'
+          'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible'
         ]
         state: present
 
@@ -56,7 +56,7 @@
         state: present
       become_user: "{{ admin_user }}"
 
-    - name: Install AUR packages
+    - name: Update AUR packages
       kewlfft.aur.aur:
         upgrade: yes
         use: yay
@@ -71,14 +71,48 @@
         owner: "{{ admin_user }}"
       become_user: "{{ admin_user }}"
 
-    - name: Configure private SSH key
+    - name: Install public SSH key
       copy:
-        src: "{{ ssh_private_key_file }}"
-        dest: "/home/{{ admin_user }}/.ssh/home-network.key"
+        src: "{{ ssh_public_key_file }}"
+        dest: "/home/{{ admin_user }}/.ssh/authorized_keys"
         owner: "{{ admin_user }}"
         mode: '0600'
       become_user: "{{ admin_user }}"
 
-    # TODO - create ssh keys
+    - name: Install private SSH key to connect to other servers
+      copy:
+        src: "{{ ssh_private_key_file }}"
+        dest: "/home/{{ admin_user }}/.ssh/home-ansible.key"
+        owner: "{{ admin_user }}"
+        mode: '0600'
+      become_user: "{{ admin_user }}"
+
+    - name: Create ssh config file
+      copy:
+        content: ""
+        dest: "/home/{{ admin_user }}/.ssh/config"
+        force: no
+        owner: "{{ admin_user }}"
+        mode: '0600'
+      become_user: "{{ admin_user }}"
+
+    - name: Configure hosts in ssh config file
+      blockinfile:
+        dest: "/home/{{ admin_user }}/.ssh/config"
+        content: |
+          HOST {{ item }}
+            HostName {{ item }}.wagner
+            Port 22
+            User {{ admin_user }}
+            IdentityFile ~/.ssh/home-ansible.key
+        marker_begin: "BEGIN {{ item }}"
+      with_items: [ 'homeserver', 'wagner', 'pizero', 'retropi', 'terminal' ]  # TODO - put this somewhere?
+
+    - name: Clone home-ansible repostitory
+      git:
+        repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/home-ansible.git"
+        dest: ~/src/home-ansible
+      become_user: "{{ admin_user }}"
+
     # TODO - configure admin user (dotfiles, remove useless dirs)
     # TODO - get git contrib file from internet

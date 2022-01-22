@@ -2,3 +2,5 @@ admin_user: admin
 admin_password: Generate using `generate_passwd.sh`
 ssh_public_key_file: Path to the public ssh key file
 ssh_private_key_file: Path to the public ssh key file (do not commit!!)
+git_username: Username to clone home-ansible repository
+git_password: Github token to clone home-ansible repository

@@ -63,6 +63,22 @@
         aur_only: yes
       become_user: "{{ admin_user }}"
 
+    - name: Create .ssh directory
+      file:
+        path: "/home/{{ admin_user }}/.ssh"
+        state: directory
+        mode: '0700'
+        owner: "{{ admin_user }}"
+      become_user: "{{ admin_user }}"
+
+    - name: Configure private SSH key
+      copy:
+        src: "{{ ssh_private_key_file }}"
+        dest: "/home/{{ admin_user }}/.ssh/home-network.key"
+        owner: "{{ admin_user }}"
+        mode: '0600'
+      become_user: "{{ admin_user }}"
+
     # TODO - create ssh keys
     # TODO - configure admin user (dotfiles, remove useless dirs)
     # TODO - get git contrib file from internet

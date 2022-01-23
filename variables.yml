@@ -1,7 +1,0 @@
-admin_user: andre
-admin_password: "$6$mysecretsalt$8nkK1cNgthqcOKtsO6eamgZDh.v8Jvj76jAP9Ul4gk2P89D8bidkXO0ZtrRn4p9lFm6xAeiaUPQk06CHYxOwy."
-ssh_public_key_file: keys/key.public
-ssh_private_key_file: keys/key.private
-git_username: andrenho
-git_password: "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"
-hostnames: List of hostnames in the network

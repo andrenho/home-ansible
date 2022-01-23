@@ -1,4 +1,0 @@
-# TODO
-    - name: Install AWS cli v2
-      include_role:
-        name: aws_cli_v2

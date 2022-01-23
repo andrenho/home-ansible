@@ -25,7 +25,7 @@
           'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
           'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible'
         ]
-        state: present
+        state: latest
 
     - name: Create sudoers group
       group:
@@ -53,7 +53,7 @@
       kewlfft.aur.aur:
         name: [ 'aws-cli-v2-bin', 'yay-bin' ]
         use: makepkg
-        state: present
+        state: latest
       become_user: "{{ admin_user }}"
 
     - name: Update AUR packages
@@ -106,8 +106,7 @@
             User {{ admin_user }}
             IdentityFile ~/.ssh/home-ansible.key
         marker_begin: "BEGIN {{ item }}"
-      with_items:
-        - "{{ hostnames }}"
+      with_items: "{{ hostnames }}"
 
     - name: Clone home-ansible repostitory
       git:

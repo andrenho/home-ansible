@@ -20,7 +20,7 @@ ansible) if [ ! -f "variables.yml" ]; then
            exit 1
          fi
          ansible-galaxy install -r requirements.yml && \
-         ansible-playbook -v base-playbook.yml
+         ansible-playbook -i staging -v site.yml
          ;;
       *) usage ;;
 esac

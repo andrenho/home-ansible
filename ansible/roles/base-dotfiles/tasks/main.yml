@@ -1,4 +1,4 @@
-- name: Clone dotfiles repostitory
+- name: Clone dotfiles repository
   git:
     repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/.dotfiles.git"
     dest: ~/src/dotfiles/

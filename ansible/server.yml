@@ -5,15 +5,9 @@
 
   tasks:
 
-    - name: Remove unwanted packages
-      pacman:
-        name: [ "iptables" ]
-        state: absent
-
     - name: Install server packages
-      pacman:
-        name: "{{ server_packages }}"
-        state: latest
+      include_role:
+        name: server-packages
 
     - name: Setup docker server
       service:
@@ -21,10 +15,31 @@
         state: started
         enabled: yes
 
-# TODO - install & start docker
-# TODO - add admin to group docker
-# TODO - install AWS secrets (?)
-# TODO - install certbot for certificates
+    - name: Add admin to group docker
+      user:
+        name: "{{ admin_user }}"
+        groups: docker
+        append: yes
+
+    - name: Create AWS credentials
+      include_role:
+        name: server-aws-creds
+
+    - name: Clone homeserver repository
+      git:
+        repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/homeserver.git"
+        dest: "{{ homeserver_path }}"
+
+    - name: Request certificate
+      command:
+        cmd: >
+          certbot certonly --agree-tos --email {{ ssl_cert_email }}
+              --preferred-challenges=dns --non-interactive
+              --manual --manual-auth-hook {{ homeserver_path }}/certificate/authenticator.sh
+              --manual-cleanup-hook {{ homeserver_path }}/certificate/cleanup.sh
+              -d homeserver.gamesmith.uk -d '*.{{ server_domain }}' -v {{ certbot_extra_args }}
+        creates: "/etc/ssl/live/{{ server_domain }}/fullchain.pem"
+
 # TODO - restore backup
 # TODO - clone homeserver
 # TODO - create password files (nginx, sftp, etc)

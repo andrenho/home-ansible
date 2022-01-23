@@ -2,6 +2,14 @@ admin_user: andre
 git_username: andrenho
 hostnames: [ 'server', 'desktop', 'terminal', 'prog-pi', 'games-pi' ]
 
+pacman_packages: [
+  'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
+  'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
+  'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible', 'colordiff',
+  'bc'
+]
+aur_packages: [ 'aws-cli-v2-bin', 'yay-bin' ]
+
 # Secrets
 
 admin_password: !vault |

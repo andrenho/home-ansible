@@ -1,0 +1,46 @@
+- name: Create .ssh directory
+  file:
+    path: "/home/{{ admin_user }}/.ssh"
+    state: directory
+    mode: '0700'
+    owner: "{{ admin_user }}"
+  become_user: "{{ admin_user }}"
+
+- name: Install public SSH key
+  copy:
+    src: "{{ ssh_public_key_file }}"
+    dest: "/home/{{ admin_user }}/.ssh/authorized_keys"
+    owner: "{{ admin_user }}"
+    mode: '0600'
+  become_user: "{{ admin_user }}"
+
+- name: Install private SSH key to connect to other servers
+  copy:
+    src: "{{ ssh_private_key_file }}"
+    dest: "/home/{{ admin_user }}/.ssh/home-ansible.key"
+    owner: "{{ admin_user }}"
+    mode: '0600'
+  become_user: "{{ admin_user }}"
+
+- name: Create ssh config file
+  copy:
+    content: ""
+    dest: "/home/{{ admin_user }}/.ssh/config"
+    force: no
+    owner: "{{ admin_user }}"
+    mode: '0600'
+  become_user: "{{ admin_user }}"
+
+- name: Configure hosts in ssh config file
+  blockinfile:
+    dest: "/home/{{ admin_user }}/.ssh/config"
+    content: |
+      HOST {{ item }}
+        HostName {{ item }}.wagner
+        Port 22
+        User {{ admin_user }}
+        IdentityFile ~/.ssh/home-ansible.key
+    marker_begin: "BEGIN {{ item }}"
+  with_items: "{{ hostnames }}"
+
+

@@ -1,0 +1,2 @@
+ssh_public_key_file: key.public
+ssh_private_key_file: key.private

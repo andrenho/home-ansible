@@ -1,6 +1,4 @@
 admin_user: andre
-ssh_public_key_file: keys/key.public
-ssh_private_key_file: keys/key.private
 git_username: andrenho
 hostnames: [ 'server', 'desktop', 'terminal', 'prog-pi', 'games-pi' ]
 

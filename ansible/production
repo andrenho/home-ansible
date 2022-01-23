@@ -1,0 +1,25 @@
+server ansible_host=192.168.15.2
+desktop ansible_host=192.168.15.3
+terminal ansible_host=192.168.15.4
+prog ansible_host=192.168.15.5
+games ansible_host=192.168.15.6
+
+[server]
+server
+
+[desktop]
+desktop
+
+[terminal]
+terminal
+
+[prog]
+prog
+
+[games]
+games
+desktop
+
+[dev]
+server
+desktop

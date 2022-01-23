@@ -3,29 +3,7 @@
   hosts: all
   become: yes
 
-  vars_files:
-    - variables.yml
-
   tasks:
-
-    - name: Update keys
-      shell: pacman-key --populate > ~/.pacman-key
-      args:
-        creates: ~/.pacman-key
-
-    - name: Full system upgrade
-      pacman:
-        update_cache: yes
-        upgrade: yes
-
-    - name: Install required packages
-      pacman:
-        name: [
-          'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
-          'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
-          'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible'
-        ]
-        state: latest
 
     - name: Create sudoers group
       group:
@@ -49,19 +27,8 @@
         line: '%wheel ALL=(ALL) NOPASSWD: ALL'
         validate: 'visudo -cf %s'
 
-    - name: Install AUR packages
-      kewlfft.aur.aur:
-        name: [ 'aws-cli-v2-bin', 'yay-bin' ]
-        use: makepkg
-        state: latest
-      become_user: "{{ admin_user }}"
-
-    - name: Update AUR packages
-      kewlfft.aur.aur:
-        upgrade: yes
-        use: yay
-        aur_only: yes
-      become_user: "{{ admin_user }}"
+    - include_role:
+        name: base-packages
 
     - name: Create .ssh directory
       file:

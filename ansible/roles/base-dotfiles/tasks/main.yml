@@ -1,0 +1,29 @@
+- name: Clone dotfiles repostitory
+  git:
+    repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/.dotfiles.git"
+    dest: ~/src/dotfiles/
+  become_user: "{{ admin_user }}"
+
+- name: Copy dotfiles to home
+  copy:
+    src: "~/src/dotfiles/{{ item }}"
+    remote_src: true
+    dest: "~"
+  become_user: "{{ admin_user }}"
+  with_items: "{{ dotfiles }}"
+
+- name: Create gitprompt directory
+  file:
+    path: "{{ gitprompt_path }}"
+    state: directory
+
+- name: Download and install gitprompt file
+  get_url:
+    url: "{{ gitprompt_url }}"
+    dest: "{{ gitprompt_path }}/git-prompt.sh"
+
+- name: Create .gitconfig file
+  template:
+    src: files/gitconfig
+    dest: ~/.gitconfig
+  become_user: "{{ admin_user }}"

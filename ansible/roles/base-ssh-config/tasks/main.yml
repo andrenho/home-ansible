@@ -43,5 +43,4 @@
     marker_begin: "BEGIN {{ item }}"
     marker_end: "END {{ item }}"
   with_items: "{{ hostnames }}"
-
-
+  become_user: "{{ admin_user }}"

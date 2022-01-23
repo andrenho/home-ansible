@@ -1,0 +1,8 @@
+dotfiles:
+  - .bashrc
+  - .dir_colors
+  - .inputrc
+  - .tmux.conf
+  - .vimrc
+gitprompt_url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+gitprompt_path: /usr/share/git-core/contrib/completion

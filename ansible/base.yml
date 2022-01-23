@@ -17,11 +17,14 @@
       include_role:
         name: base-ssh-config
 
-    - name: Clone home-ansible repostitory
+    - name: Install dotfiles for admin
+      include_role:
+        name: base-dotfiles
+
+    - name: Clone home-ansible repository
       git:
         repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/home-ansible.git"
         dest: ~/src/home-ansible
       become_user: "{{ admin_user }}"
 
-    # TODO - configure admin user (dotfiles, remove useless dirs)
-    # TODO - get git contrib file from internet
+    # TODO - create .gitconfig

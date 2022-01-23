@@ -2,32 +2,27 @@
   shell: pacman-key --populate > ~/.pacman-key
   args:
     creates: ~/.pacman-key
-  become: true
 
 - name: Full system upgrade
   pacman:
     update_cache: yes
     upgrade: yes
-  become: true
 
 - name: Install required packages
   pacman:
-    name: [
-      'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
-      'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
-      'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible'
-    ]
+    name: "{{ pacman_packages }}"
     state: latest
-  become: true
 
 - name: Install AUR packages
   kewlfft.aur.aur:
-    name: [ 'aws-cli-v2-bin', 'yay-bin' ]
+    name: "{{ aur_packages }}"
     use: makepkg
     state: present   # TODO - latest
+  become_user: "{{ admin_user }}"
 
 - name: Update AUR packages
   kewlfft.aur.aur:
     upgrade: yes
     use: yay
     aur_only: yes
+  become_user: "{{ admin_user }}"

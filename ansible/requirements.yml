@@ -1,6 +1,2 @@
-roles:
-  - name: aws_cli_v2
-    src: deekayen.awscli2
-    version: master
 collections:
   - name: kewlfft.aur

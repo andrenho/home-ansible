@@ -1,0 +1,21 @@
+- name: Create sudoers group
+  group:
+    name: wheel
+    state: present
+
+- name: Create admin user
+  user:
+    name: "{{ admin_user }}"
+    groups: users,wheel
+    append: yes
+    createhome: yes
+    # ssh_key_file
+    password: "{{ admin_password }}"
+
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'

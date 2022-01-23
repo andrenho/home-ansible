@@ -1,0 +1,34 @@
+---
+- name: Install and configure server
+  hosts: server
+  become: yes
+
+  tasks:
+
+    - name: Remove unwanted packages
+      pacman:
+        name: [ "iptables" ]
+        state: absent
+
+    - name: Install server packages
+      pacman:
+        name: "{{ server_packages }}"
+        state: latest
+
+    - name: Setup docker server
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+# TODO - install & start docker
+# TODO - add admin to group docker
+# TODO - install AWS secrets (?)
+# TODO - install certbot for certificates
+# TODO - restore backup
+# TODO - clone homeserver
+# TODO - create password files (nginx, sftp, etc)
+# TODO - configure docker compose
+# TODO - mount external disk
+# TODO - install dash and install/start service
+# TODO - create docker service and install/start service

@@ -1,2 +1,3 @@
 ---
 - import_playbook: base.yml
+- import_playbook: server.yml

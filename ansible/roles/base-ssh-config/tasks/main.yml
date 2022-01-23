@@ -41,6 +41,7 @@
         User {{ admin_user }}
         IdentityFile ~/.ssh/home-ansible.key
     marker_begin: "BEGIN {{ item }}"
+    marker_end: "END {{ item }}"
   with_items: "{{ hostnames }}"
 
 

@@ -9,8 +9,7 @@
     groups: users,wheel
     append: yes
     createhome: yes
-    # ssh_key_file
-    password: "{{ admin_password }}"
+    password: "{{ admin_password | string | password_hash('sha512', admin_password_salt | string) }}"
 
 - name: Allow 'wheel' group to have passwordless sudo
   lineinfile:

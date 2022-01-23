@@ -15,7 +15,7 @@ case "$1" in
    info) cd test-vm/$2 && vagrant global-status && vagrant ssh-config default && cd ../.. ;;
   login) cd test-vm/$2 && vagrant ssh && cd ../.. ;;
 ansible) ansible-galaxy install -r requirements.yml && \
-         ansible-playbook -i testing -v site.yml
+         ansible-playbook --vault-password-file ~/.vault_pass.txt -i testing -v site.yml
          ;;
       *) usage ;;
 esac

@@ -1,8 +1,8 @@
 server ansible_host=192.168.15.2
 desktop ansible_host=192.168.15.3
 terminal ansible_host=192.168.15.4
-prog ansible_host=192.168.15.5
-games ansible_host=192.168.15.6
+prog-pi ansible_host=192.168.15.5
+games-pi ansible_host=192.168.15.6
 
 [server]
 server
@@ -14,10 +14,10 @@ desktop
 terminal
 
 [prog]
-prog
+prog-pi
 
 [games]
-games
+games-pi
 desktop
 
 [dev]

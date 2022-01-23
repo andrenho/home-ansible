@@ -106,7 +106,8 @@
             User {{ admin_user }}
             IdentityFile ~/.ssh/home-ansible.key
         marker_begin: "BEGIN {{ item }}"
-      with_items: [ 'homeserver', 'wagner', 'pizero', 'retropi', 'terminal' ]  # TODO - put this somewhere?
+      with_items:
+        - "{{ hostnames }}"
 
     - name: Clone home-ansible repostitory
       git:

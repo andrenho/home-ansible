@@ -1,6 +1,8 @@
 # Path where the homeserver is installed
 
 homeserver_path: /root/homeserver
+data_device: sdb1  # (ex. sdb1) comment this line if data device is not in a different partition
+data_mount_point: /root/volume
 
 # Domain under which the homeserver is running
 

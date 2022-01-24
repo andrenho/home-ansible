@@ -1,5 +1,5 @@
 ---
-- name: Request certificate (first time)
+- name: Request certificate (first time - this can take a long time)
   command:
     cmd: >
       certbot certonly --agree-tos --email {{ ssl_cert_email }}

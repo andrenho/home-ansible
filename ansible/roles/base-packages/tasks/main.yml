@@ -13,10 +13,17 @@
     name: "{{ pacman_packages }}"
     state: latest
 
+- name: Install yay
+  kewlfft.aur.aur:
+    name: yay-bin
+    use: makepkg
+    state: present   # TODO - latest
+  become_user: "{{ admin_user }}"
+
 - name: Install AUR packages
   kewlfft.aur.aur:
     name: "{{ aur_packages }}"
-    use: makepkg
+    use: yay
     state: present   # TODO - latest
   become_user: "{{ admin_user }}"
 

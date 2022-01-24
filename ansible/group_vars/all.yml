@@ -28,7 +28,7 @@ pacman_packages: [
   'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible', 'colordiff',
   'bc'
 ]
-aur_packages: [ 'aws-cli-v2-bin', 'yay-bin' ]
+aur_packages: [ 'aws-cli-v2-bin' ]
 
 # Git credentials to clone repositories
 

@@ -22,7 +22,10 @@
       include_role:
         name: server-certbot
 
-# TODO - restore backup
+    - name: Configure data directory
+      include_role:
+        name: server-data-dir
+
 # TODO - clone homeserver
 # TODO - create password files (nginx, sftp, etc)
 # TODO - configure docker compose

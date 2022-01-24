@@ -1,0 +1,25 @@
+---
+
+- name: Get list of block devices
+  shell: "lsblk -lno NAME | grep '^{{ data_device }}$'"
+  register: lsblk
+  when: data_device is defined
+  ignore_errors: true
+
+- name: Fail if data device does not exist
+  fail:
+    msg: "/dev/{{ data_device }} does not exist"
+  when: data_device is defined and lsblk.rc != 0
+
+- name: Mount data device
+  mount:
+    path: "{{ data_mount_point }}"
+    src: "/dev/{{ data_device }}"
+    fstype: ext4
+    opts: defaults,lazytime,user,exec
+    state: mounted
+  when: data_device is defined
+
+# TODO - check if data device exists
+# TODO - mount data device, add to fstab
+# TODO - restore backup

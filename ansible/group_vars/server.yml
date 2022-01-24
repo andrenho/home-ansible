@@ -16,6 +16,11 @@ server_packages: [ 'docker', 'virtualbox', 'certbot', 'cronie' ]
 
 certbot_extra_args: "--staging"
 
+# Restore backup
+
+restore_from: file                 # options: file, s3, none
+restore_file: server.tar.bz2       # filename path or s3 path (needs to be a compressed file)
+
 # E-mail used to request certificate
 
 ssl_cert_email: !vault |

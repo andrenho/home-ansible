@@ -20,6 +20,22 @@
     state: mounted
   when: data_device is defined
 
-# TODO - check if data device exists
-# TODO - mount data device, add to fstab
-# TODO - restore backup
+- name: Restore backup from file   # TODO - check if it was not already restored
+  copy:
+    src: "{{ restore_file }}"
+    dest: /tmp/backup
+  when: restore_from == 'file'
+
+# TODO - restore from S3
+
+- name: Uncompress backup
+  unarchive:
+    remote_src: true
+    src: /tmp/backup
+    dest: "{{ data_mount_point }}/"
+  when: restore_from == 'file' or restore_from == 's3'
+
+- name: Remove backup file
+  file:
+    path: /tmp/backup
+    state: absent

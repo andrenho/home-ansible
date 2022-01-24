@@ -19,3 +19,13 @@
   pacman:
     name: "{{ server_packages }}"
     state: latest
+
+- name: Setup docker server
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - docker
+    - cronie
+

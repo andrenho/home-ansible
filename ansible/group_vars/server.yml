@@ -8,7 +8,7 @@ server_domain: homeserver.gamesmith.uk
 
 # List of speecial packages to be installed in the server
 
-server_packages: [ 'docker', 'virtualbox', 'certbot' ]
+server_packages: [ 'docker', 'virtualbox', 'certbot', 'cronie' ]
 
 # Additional parameters for certbot (remove this for PRODUCTION)
 

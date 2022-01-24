@@ -1,0 +1,21 @@
+---
+- name: iptables-nft is installed?
+  command: pacman -Qi iptables-nft
+  register: result
+  ignore_errors: true
+  changed_when: false
+
+- name: Install iptables-nft
+  shell: "yes y | pacman -S iptables-nft"
+  args:
+    executable: /bin/bash
+  when: result.rc != 0
+
+- name: Reboot machine
+  reboot:
+  when: result.rc != 0
+
+- name: Install server packages
+  pacman:
+    name: "{{ server_packages }}"
+    state: latest

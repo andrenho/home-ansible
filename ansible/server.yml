@@ -38,7 +38,7 @@
               --manual --manual-auth-hook {{ homeserver_path }}/certificate/authenticator.sh
               --manual-cleanup-hook {{ homeserver_path }}/certificate/cleanup.sh
               -d homeserver.gamesmith.uk -d '*.{{ server_domain }}' -v {{ certbot_extra_args }}
-        creates: "/etc/ssl/live/{{ server_domain }}/fullchain.pem"
+        creates: "/etc/letsencrypt/live/{{ server_domain }}/fullchain.pem"
 
 # TODO - restore backup
 # TODO - clone homeserver

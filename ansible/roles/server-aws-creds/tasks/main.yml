@@ -1,0 +1,21 @@
+- name: Create .aws directory (root)
+  file:
+    path: "~/.aws"
+    state: directory
+
+- name: Create .aws directory (admin)
+  file:
+    path: "~/.aws"
+    state: directory
+  become_user: "{{ admin_user }}"
+
+- name: Install AWS credentials (root)
+  template:
+    src: templates/credentials
+    dest: ~/.aws/credentials
+
+- name: Install AWS credentials (admin)
+  template:
+    src: templates/credentials
+    dest: ~/.aws/credentials
+  become_user: "{{ admin_user }}"

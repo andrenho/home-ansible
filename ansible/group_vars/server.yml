@@ -1,8 +1,20 @@
+# Path where the homeserver is installed
+
 homeserver_path: /root/homeserver
+
+# Domain under which the homeserver is running
+
 server_domain: homeserver.gamesmith.uk
-certbot_extra_args: "--staging"
+
+# List of speecial packages to be installed in the server
 
 server_packages: [ 'docker', 'virtualbox', 'certbot' ]
+
+# Additional parameters for certbot (remove this for PRODUCTION)
+
+certbot_extra_args: "--staging"
+
+# E-mail used to request certificate
 
 ssl_cert_email: !vault |
           $ANSIBLE_VAULT;1.1;AES256
@@ -11,6 +23,8 @@ ssl_cert_email: !vault |
           61326465353665336364333332633862306531623330363631323664366463346562363138623337
           3531376330323135370a313430643031643762346536306234653666353439636164393465373637
           35663834383933313564356366623834383666396464626366653238616336323965
+
+# AWS credentials to register certificate DNS challenge, and to run home server (backups, etc)
 
 aws_access_key: !vault |
           $ANSIBLE_VAULT;1.1;AES256

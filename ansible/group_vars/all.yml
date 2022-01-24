@@ -1,17 +1,6 @@
+# Credentials for OS admin user in all computers
+
 admin_user: andre
-git_username: andrenho
-hostnames: [ 'server', 'desktop', 'terminal', 'prog-pi', 'games-pi' ]
-
-pacman_packages: [
-  'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
-  'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
-  'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible', 'colordiff',
-  'bc'
-]
-aur_packages: [ 'aws-cli-v2-bin', 'yay-bin' ]
-
-# Secrets
-
 admin_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           32313762333261626334386236323434613034303664366630626234633731376366626431343135
@@ -26,6 +15,24 @@ admin_password_salt: !vault |
           35396165626362613963393064616230376266363232363037303932336530316562333463663639
           3938336536636534350a643338363037333565616135343562386137336661613439663461636630
           6538
+
+# List of all hostnames in the network (used to configure ssh)
+
+hostnames: [ 'server', 'desktop', 'terminal', 'prog-pi', 'games-pi' ]
+
+# List of packages to be installed in all computers
+
+pacman_packages: [
+  'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
+  'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
+  'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible', 'colordiff',
+  'bc'
+]
+aur_packages: [ 'aws-cli-v2-bin', 'yay-bin' ]
+
+# Git credentials to clone repositories
+
+git_username: andrenho
 git_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           33333164616137363832386566323563333961323466393964343136636663353337323939653434
@@ -34,6 +41,9 @@ git_password: !vault |
           3932393865643235620a663731363431303434613535616465306163623262636635353133356563
           36623136656431343838666134386232373961343832383263616661666363333730363239326636
           6331646534343462353465636233333634323366643736623632
+
+# Git name and e-mail of the admin user, for commits
+
 gitconfig_name: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           35316464643562623839333633343639353861396336656133623834633331643439383066643833

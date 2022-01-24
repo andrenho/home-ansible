@@ -29,3 +29,9 @@
     - docker
     - cronie
 
+- name: Add admin to group docker
+  user:
+    name: "{{ admin_user }}"
+    groups: docker
+    append: yes
+

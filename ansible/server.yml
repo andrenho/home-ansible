@@ -9,12 +9,6 @@
       include_role:
         name: server-packages
 
-    - name: Add admin to group docker
-      user:
-        name: "{{ admin_user }}"
-        groups: docker
-        append: yes
-
     - name: Create AWS credentials
       include_role:
         name: server-aws-creds

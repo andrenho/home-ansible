@@ -1,0 +1,17 @@
+[Unit]
+Description=Docker Compose Application Service
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+RemainAfterExit=yes
+WorkingDirectory={{ homeserver_path }}
+ExecStart=/usr/bin/docker-compose --env-file {{ docker_env_file }} up -d
+ExecStop=/usr/bin/docker-compose down
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target

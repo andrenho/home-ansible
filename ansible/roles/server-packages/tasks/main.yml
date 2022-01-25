@@ -20,6 +20,10 @@
     name: "{{ server_packages }}"
     state: latest
 
+- name: Install pip packages
+  pip:
+    name: "{{ server_packages_pip }}"
+
 - name: Setup docker server
   service:
     name: "{{ item }}"

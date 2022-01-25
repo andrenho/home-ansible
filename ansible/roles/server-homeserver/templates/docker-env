@@ -1,0 +1,4 @@
+VOLUME_DIR={{ data_mount_point }} 
+USERNAME={{ homeserver_user }}
+PASSWORD={{ homeserver_password }}
+UID={{ admin_uid }}

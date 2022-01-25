@@ -15,6 +15,7 @@ admin_password_salt: !vault |
           35396165626362613963393064616230376266363232363037303932336530316562333463663639
           3938336536636534350a643338363037333565616135343562386137336661613439663461636630
           6538
+admin_uid: 1234
 
 # List of all hostnames in the network (used to configure ssh)
 
@@ -26,7 +27,7 @@ pacman_packages: [
   'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
   'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
   'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible', 'colordiff',
-  'bc', 'python-boto3'
+  'bc', 'python-boto3', 'python-pip'
 ]
 aur_packages: [ 'aws-cli-v2-bin' ]
 

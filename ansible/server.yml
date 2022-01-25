@@ -17,6 +17,7 @@
       git:
         repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/homeserver.git"
         dest: "{{ homeserver_path }}"
+        version: home-network   # TODO - remove
 
     - name: Request certificate (first time)
       include_role:

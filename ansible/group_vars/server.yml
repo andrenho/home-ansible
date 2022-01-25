@@ -4,7 +4,8 @@ server_domain: homeserver.gamesmith.uk
 
 # List of speecial packages to be installed in the server
 
-server_packages: [ 'docker', 'virtualbox', 'certbot', 'cronie' ]
+server_packages: [ 'docker', 'virtualbox', 'certbot', 'cronie', 'python-docker', 'docker-compose' ]
+server_packages_pip: [ 'docker-compose' ]
 
 # Additional parameters for certbot (remove this for PRODUCTION)
 
@@ -20,6 +21,14 @@ restore_s3_object: data-2022-01-22.tar.bz2       # S3 object in bucket
 # Homeserver configuration
 
 homeserver_path: /root/homeserver
+homeserver_user: andre
+homeserver_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          32313762333261626334386236323434613034303664366630626234633731376366626431343135
+          3933323663383135633236373362663961363939353266390a653936363261633862396139323231
+          39666131656164393532353963333937656330326164333037336434633235666333343164373562
+          3632303035343735330a633763326135363862306437633262306237313936396361373665313364
+          6632
 
 # Data device
 

@@ -1,11 +1,41 @@
 ---
 
+# TODO - remove
+- name: Clone homeserver repository
+  git:
+    repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/homeserver.git"
+    dest: "{{ homeserver_path }}"
+    version: home-network   # TODO - remove
+
+- name: Build images
+  docker_compose:
+    build: yes
+    project_src: "{{ homeserver_path }}"
+    state: present
+
+- name: Create service
+  template:
+    src: docker-compose-app.service
+    dest: /etc/systemd/system/docker-compose-app.service
+
+- name: Create env file
+  template:
+    src: docker-env
+    dest: "{{ docker_env_file }}"
+
+- name: Start and enable service
+  service:
+    name: docker-compose-app
+    state: started
+    enabled: true
+
 # TODO - services
 #   - ftp
 #   - sftp
+#   - nginx (partial), partainer
+#   - pihole
 #   - dynamicdns, backup
 #   - mqtt, dnla
-#   - nginx (partial), pihole
 #   - homer (configure yaml file)
 #   - dokuwiki, portainer, openbooks
 #   - ssh, explorer

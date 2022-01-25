@@ -10,6 +10,7 @@
     append: yes
     createhome: yes
     password: "{{ admin_password | string | password_hash('sha512', admin_password_salt | string) }}"
+    uid: "{{ admin_uid }}"
 
 - name: Allow 'wheel' group to have passwordless sudo
   lineinfile:

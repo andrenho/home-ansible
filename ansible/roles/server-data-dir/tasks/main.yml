@@ -20,22 +20,37 @@
     state: mounted
   when: data_device is defined
 
-- name: Restore backup from file   # TODO - check if it was not already restored
-  copy:
-    src: "{{ restore_file }}"
-    dest: /tmp/backup
-  when: restore_from == 'file'
+- name: Verify if directory `data` exists
+  stat:
+    path: "{{ data_mount_point }}/data"
+  register: data
 
-# TODO - restore from S3
+- name: Restore backup from file
+  copy:
+    src: "{{ restore_file_path }}"
+    dest: /tmp/backup
+  when: restore_from == 'file' and not data.stat.exists
+
+- name: Restore backup from S3
+  amazon.aws.aws_s3:
+    bucket: "{{ restore_s3_bucket }}"
+    object: "{{ restore_s3_object }}"
+    dest: /tmp/backup
+    mode: get
+    aws_access_key: "{{ aws_access_key }}"
+    aws_secret_key: "{{ aws_secret_access_key }}"
+    ignore_nonexistent_bucket: true
+  when: restore_from == 's3' and not data.stat.exists
 
 - name: Uncompress backup
   unarchive:
     remote_src: true
     src: /tmp/backup
     dest: "{{ data_mount_point }}/"
-  when: restore_from == 'file' or restore_from == 's3'
+  when: restore_from == 'file' or restore_from == 's3' and not data.stat.exists
 
 - name: Remove backup file
   file:
     path: /tmp/backup
     state: absent
+  when: restore_from == 'file' or restore_from == 's3' and not data.stat.exists

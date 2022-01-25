@@ -18,8 +18,10 @@ certbot_extra_args: "--staging"
 
 # Restore backup
 
-restore_from: file                 # options: file, s3, none
-restore_file: server.tar.bz2       # filename path or s3 path (needs to be a compressed file)
+restore_from: s3                 # options: file, s3, none
+restore_file_path: server.tar.bz2       # filename path to restore from (when restore_from == file)
+restore_s3_bucket: homeserver-gamesmith-backup   # S3 bucket to restore from (when restore_from == s3)
+restore_s3_object: data-2022-01-22.tar.bz2       # S3 object in bucket
 
 # E-mail used to request certificate
 

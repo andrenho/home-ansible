@@ -1,9 +1,3 @@
-# Path where the homeserver is installed
-
-homeserver_path: /root/homeserver
-data_device: sdb1  # (ex. sdb1) comment this line if data device is not in a different partition
-data_mount_point: /root/volume
-
 # Domain under which the homeserver is running
 
 server_domain: homeserver.gamesmith.uk
@@ -22,6 +16,15 @@ restore_from: s3                 # options: file, s3, none
 restore_file_path: server.tar.bz2       # filename path to restore from (when restore_from == file)
 restore_s3_bucket: homeserver-gamesmith-backup   # S3 bucket to restore from (when restore_from == s3)
 restore_s3_object: data-2022-01-22.tar.bz2       # S3 object in bucket
+
+# Homeserver configuration
+
+homeserver_path: /root/homeserver
+
+# Data device
+
+data_device: sdb1  # (ex. sdb1) comment this line if data device is not in a different partition
+data_mount_point: /root/volume
 
 # E-mail used to request certificate
 

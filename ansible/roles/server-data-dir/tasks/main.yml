@@ -5,6 +5,7 @@
   register: lsblk
   when: data_device is defined
   ignore_errors: true
+  changed_when: false
 
 - name: Fail if data device does not exist
   fail:

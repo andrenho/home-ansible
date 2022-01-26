@@ -3,6 +3,12 @@
 
 ENV["VAGRANT_EXPERIMENTAL"] = "disks"
 
+$script = <<-SCRIPT
+pacman -Sy --noconfirm parted
+parted -s -a optimal /dev/sdb mklabel gpt -- mkpart primary ext4 1 499MB
+mkfs.ext4 /dev/sdb1
+SCRIPT
+
 Vagrant.configure("2") do |config|
   config.vm.box = "archlinux/archlinux"
 
@@ -17,9 +23,8 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |v|
     v.memory = 256
     v.linked_clone = true
-
-    # v.customize ['createhd', '--filename', 'data.vdi', '--size', 500 * 1024]
-    # v.customize ['storageattach', :id, '--storagectl', 'SATA', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', 'data.vdi']
   end
+
+  config.vm.provision "shell", inline: $script
 
 end

@@ -1,11 +1,28 @@
-- [ ] Learn ansible basics
-- [ ] Create a base setup for testing using docker
-  - [ ] Create arch dist
-    - [ ] Setup fixed IP
-- [ ] Create base role
-  - [ ] Install base system
-  - [ ] Install network tools
-  - [ ] Install X
-  - [ ] Install browser
-  - [ ] Configure SSH keys
-- [ ] ...
+- [ ] Improve certificate request
+- [ ] Run essencial services
+  - [ ] FTP
+  - [ ] SFTP
+  - [ ] Nginx
+  - [ ] Portainer
+  - [ ] PiHole
+  - [ ] Plex
+  - [ ] DynamicDNS
+  - [ ] Backup
+  - [ ] DLNA
+- [ ] Run on real computer (?)
+- [ ] Run services
+  - [ ] Homer (configure yml)
+  - [ ] MQTT
+  - [ ] Dokuwiki
+  - [ ] Openbooks
+  - [ ] webssh
+  - [ ] explorer
+  - [ ] sonarr, radarr, bazarr
+  - [ ] rss, rss-db
+  - [ ] cyberchef
+  - [ ] hoppscotch
+  - [ ] ubooquity
+  - [ ] podgrab
+  - [ ] torrent
+  - [ ] plex
+  - [ ] dev

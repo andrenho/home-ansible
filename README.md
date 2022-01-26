@@ -1,19 +1,25 @@
 # home-network
 Manages the network and computers/laptops of my home using ansible.
 
-# Install instructions
+# Install instructions (PRODUCTION)
 
 1. Create a file `~/.vault_pass.txt` containing the vault password.
 1. Review inventory (`ansible/production`)
 2. Review variables (`ansible/group_vars`)
   2.1. Encrypted strings can be created with `ansible-vault encrypt_string "MY_PASSWORD" --name index_name
   2.2. Encrypted files can be created with `ansible-vault encrypt MYFILE`
-3. Run tests:
-  3.1. Start a VM with `./run_test_vm.sh start arch`
-  3.2. Run ansible on the VM with `./run_test_vm.sh ansible arch`
-  3.2. Destroy the VM with `./run_test_vm.sh stop arch`
+3. Run tests (see below)
 4. Make sure all computers are on, with their correct IPs, with python installed and ssh running
 5. Run `./ansible.sh`.
+
+# Test running instruction
+
+1. Run `./run_test_vm.sh start DIST` (where DIST is arch or raspberrypi) to start the VM.
+  1.1. You'll get a lot of "Remote connection disconnect...", just wait.
+  1.2. Type "yes" when it asks to connect.
+2. Run `./run_test_vm.sh ansible DIST` to run ansible in that VM.
+3. Test the VM.
+4. Run `./run_test_vm.sh stop DIST` to destroy the VM.
 
 # Inventory groups
 

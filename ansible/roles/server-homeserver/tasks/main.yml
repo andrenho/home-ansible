@@ -32,7 +32,7 @@
 - name: Start and enable service
   service:
     name: docker-compose-app
-    state: started
+    state: started    # TODO - restart service
     enabled: true
 
 # TODO - services

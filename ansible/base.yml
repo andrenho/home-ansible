@@ -5,7 +5,7 @@
 
   tasks:
 
-    - name: Create admin user
+    - name: Create admin & data users
       include_role:
         name: base-admin-user
 

@@ -1,29 +1,37 @@
 ---
 
 - name: Get list of block devices
-  shell: "lsblk -lno NAME | grep '^{{ data_device }}$'"
+  shell: "lsblk -lno NAME | grep '^{{ volume_device }}$'"
   register: lsblk
-  when: data_device is defined
+  when: volume_device is defined
   ignore_errors: true
   changed_when: false
 
-- name: Fail if data device does not exist
+- name: Fail if volume device does not exist
   fail:
-    msg: "/dev/{{ data_device }} does not exist"
-  when: data_device is defined and lsblk.rc != 0
+    msg: "/dev/{{ volume_device }} does not exist"
+  when: volume_device is defined and lsblk.rc != 0
 
-- name: Mount data device
+- name: Create volume mountpoint
+  file: 
+    path: "{{ volume_mount_point }}"
+    state: directory
+    recurse: yes
+    owner: data
+    group: data
+
+- name: Mount volume device
   mount:
-    path: "{{ data_mount_point }}"
-    src: "/dev/{{ data_device }}"
-    fstype: ext4
-    opts: defaults,lazytime,user,exec
+    path: "{{ volume_mount_point }}"
+    src: "/dev/{{ volume_device }}"
+    fstype: vfat
+    opts: "defaults,lazytime,user,exec,uid={{ data_uid }},gid={{ data_gid }},fmask=117,dmask=007"
     state: mounted
-  when: data_device is defined
+  when: volume_device is defined
 
 - name: Verify if directory `data` exists
   stat:
-    path: "{{ data_mount_point }}/data"
+    path: "{{ data_dir }}"
   register: data
 
 - name: Restore backup from file
@@ -43,11 +51,23 @@
     ignore_nonexistent_bucket: true
   when: restore_from == 's3' and not data.stat.exists
 
+- name: Create data directory
+  file:
+    path: "{{ data_dir }}"
+    state: directory
+    recurse: yes
+    owner: data
+    group: data
+    mode: '775'
+
 - name: Uncompress backup
   unarchive:
     remote_src: true
     src: /tmp/backup
-    dest: "{{ data_mount_point }}/"
+    dest: "{{ data_dir }}/"
+    owner: data
+    group: data
+    mode: "u=rwX,g=rwX,o=rX"
   when: restore_from == 'file' or restore_from == 's3' and not data.stat.exists
 
 - name: Remove backup file

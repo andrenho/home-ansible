@@ -1,15 +1,17 @@
-- [ ] Improve certificate request
 - [ ] Run essencial services
   - [X] FTP
   - [ ] SFTP
   - [ ] Nginx
+    - [ ] Improve certificate request
   - [ ] Portainer
   - [ ] PiHole
   - [ ] Plex
   - [ ] DynamicDNS
   - [ ] Backup
   - [ ] DLNA
+- [ ] Improve README - add preparation tasks (router redirects, etc)
 - [ ] Run on real computer (?)
+  - [ ] Use "master" branch of homeserver instead of "home-network" (two places)
 - [ ] Run services
   - [ ] Homer (configure yml)
   - [ ] MQTT

@@ -1,4 +1,6 @@
-VOLUME_DIR={{ data_mount_point }} 
+VOLUME_DIR={{ volume_mount_point }} 
+DATA_DIR={{ data_dir }}
 USERNAME={{ homeserver_user }}
 PASSWORD={{ homeserver_password }}
-UID={{ admin_uid }}
+DATA_UID={{ data_uid }}
+DATA_GID={{ data_gid }}

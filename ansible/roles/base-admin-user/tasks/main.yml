@@ -1,3 +1,18 @@
+- name: Create data group
+  group:
+    name: data
+    state: present
+    gid: "{{ data_gid }}"
+
+- name: Create data user
+  user:
+    name: data
+    group: data
+    create_home: no
+    uid: "{{ data_uid }}"
+    shell: "/usr/bin/false"
+    password: "!"
+
 - name: Create sudoers group
   group:
     name: wheel
@@ -6,7 +21,7 @@
 - name: Create admin user
   user:
     name: "{{ admin_user }}"
-    groups: users,wheel
+    groups: users,wheel,data
     append: yes
     createhome: yes
     password: "{{ admin_password | string | password_hash('sha512', admin_password_salt | string) }}"

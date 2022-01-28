@@ -17,6 +17,9 @@ admin_password_salt: !vault |
           6538
 admin_uid: 1234
 
+data_uid: 1020
+data_gid: 1020
+
 # List of all hostnames in the network (used to configure ssh)
 
 hostnames: [ 'server', 'desktop', 'terminal', 'prog-pi', 'games-pi' ]

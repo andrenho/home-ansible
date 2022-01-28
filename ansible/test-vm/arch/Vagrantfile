@@ -4,9 +4,10 @@
 ENV["VAGRANT_EXPERIMENTAL"] = "disks"
 
 $script = <<-SCRIPT
-pacman -Sy --noconfirm parted
-parted -s -a optimal /dev/sdb mklabel gpt -- mkpart primary ext4 1 499MB
-mkfs.ext4 /dev/sdb1
+pacman-key --populate
+pacman -Sy --noconfirm parted dosfstools
+parted -s -a optimal /dev/sdb mklabel gpt -- mkpart primary fat32 1 499MB
+mkfs.vfat /dev/sdb1
 SCRIPT
 
 Vagrant.configure("2") do |config|

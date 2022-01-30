@@ -2,7 +2,8 @@
   - [X] FTP
   - [X] SFTP
   - [ ] Nginx
-    - [ ] Improve certificate request
+    - [X] Improve certificate request
+    - [ ] Hello
   - [ ] Portainer
   - [ ] PiHole
   - [ ] Plex

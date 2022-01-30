@@ -12,6 +12,13 @@
   become_user: "{{ admin_user }}"
   with_items: "{{ dotfiles }}"
 
+- name: Copy dotfiles to home
+  copy:
+    src: "/home/{{ admin_user }}/src/dotfiles/{{ item }}"
+    remote_src: true
+    dest: "/root/"
+  with_items: "{{ dotfiles }}"
+
 - name: Create gitprompt directory
   file:
     path: "{{ gitprompt_path }}"

@@ -23,11 +23,6 @@
     src: docker-env
     dest: "{{ docker_env_file }}"
 
-- name: Create sftp secrets file
-  shell:
-    creates: /root/sftp-users.conf
-    cmd: echo "{{ homeserver_user }}:$(echo -n '{{ homeserver_password }}' | docker run -i --rm atmoz/makepasswd --crypt-md5 --clearfrom=- | awk -F ' ' '{print $2}'):{{ admin_uid }}:1000" > /root/sftp-users.conf
-
       #- name: Start and enable service
       #  service:
       #    name: docker-compose-app

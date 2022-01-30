@@ -17,7 +17,7 @@
       include_role:
         name: base-ssh-config
 
-    - name: Install dotfiles for admin
+    - name: Install dotfiles for admin & root
       include_role:
         name: base-dotfiles
 

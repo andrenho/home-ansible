@@ -7,9 +7,10 @@ server_domain: homeserver.gamesmith.uk
 server_packages: [ 'docker', 'virtualbox', 'certbot', 'cronie', 'python-docker', 'docker-compose' ]
 server_packages_pip: [ 'docker-compose' ]
 
-# Additional parameters for certbot (remove this for PRODUCTION)
+# Additional parameters for certbot
 
-certbot_extra_args: "--staging"
+certbot_extra_args:
+route53_hosted_zone: Z1E6IX3AW27X6H
 
 # Restore backup
 

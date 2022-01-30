@@ -26,5 +26,3 @@
         repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/home-ansible.git"
         dest: ~/src/home-ansible
       become_user: "{{ admin_user }}"
-
-    # TODO - create .gitconfig

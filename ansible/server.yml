@@ -19,9 +19,9 @@
         dest: "{{ homeserver_path }}"
         version: home-network   # TODO - remove
 
-          #- name: Request certificate (first time)
-          #include_role:
-          #name: server-certbot
+    - name: Request certificate - first time
+      include_role:
+        name: server-certbot
 
     - name: Configure data directory
       include_role:

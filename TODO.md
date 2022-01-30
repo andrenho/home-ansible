@@ -1,6 +1,6 @@
 - [ ] Run essencial services
   - [X] FTP
-  - [ ] SFTP
+  - [X] SFTP
   - [ ] Nginx
     - [ ] Improve certificate request
   - [ ] Portainer

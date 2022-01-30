@@ -14,5 +14,4 @@
 - name: Add certificate renewal to crontab
   cron:
     name: "Renew certificate"
-    weekday: 0
     job: "/usr/bin/certbot renew --quiet"

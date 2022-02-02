@@ -1,25 +1,25 @@
-server ansible_host=192.168.15.2
-desktop ansible_host=192.168.15.3
-terminal ansible_host=192.168.15.4
-prog-pi ansible_host=192.168.15.5
-games-pi ansible_host=192.168.15.6
+server ansible_host=192.168.15.2 ansible_user=andre
+#desktop ansible_host=192.168.15.3
+#terminal ansible_host=192.168.15.4
+#prog-pi ansible_host=192.168.15.5
+#games-pi ansible_host=192.168.15.6
 
 [server]
 server
 
-[desktop]
-desktop
+#[desktop]
+#desktop
 
-[terminal]
-terminal
+#[terminal]
+#terminal
 
-[prog]
-prog-pi
+#[prog]
+#prog-pi
 
-[games]
-games-pi
-desktop
+#[games]
+#games-pi
+#desktop
 
-[dev]
-server
-desktop
+#[dev]
+#server
+#desktop

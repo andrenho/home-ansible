@@ -13,20 +13,20 @@
       include_role:
         name: server-aws-creds
 
-    - name: Clone homeserver repository
-      git:
-        repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/homeserver.git"
-        dest: "{{ homeserver_path }}"
-        version: home-network   # TODO - remove
+          #    - name: Clone homeserver repository
+          #      git:
+          #        repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/homeserver.git"
+          #        dest: "{{ homeserver_path }}"
+          #        version: home-network   # TODO - remove
 
-    - name: Request certificate - first time
-      include_role:
-        name: server-certbot
-
-    - name: Configure data directory
-      include_role:
-        name: server-data-dir
-
-    - name: Configure homeserver
-      include_role:
-        name: server-homeserver
+          #    - name: Request certificate - first time
+          #      include_role:
+          #        name: server-certbot
+          #
+          #    - name: Configure data directory
+          #      include_role:
+          #        name: server-data-dir
+          #
+          #    - name: Configure homeserver
+          #      include_role:
+          #        name: server-homeserver

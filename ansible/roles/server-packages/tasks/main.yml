@@ -15,7 +15,7 @@
   reboot:
   when: result.rc != 0
 
-- name: Install server packages
+- name: Install server package
   pacman:
     name: "{{ server_packages }}"
     state: latest

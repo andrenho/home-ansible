@@ -17,11 +17,11 @@
     src: docker-compose-app.service
     dest: /etc/systemd/system/docker-compose-app.service
 
-- name: Start and enable service
-  service:
-    name: docker-compose-app
-    state: restarted
-    enabled: true
-    daemon_reload: true
+      #- name: Start and enable service
+      #  service:
+      #    name: docker-compose-app
+      #    state: restarted
+      #    enabled: true
+      #    daemon_reload: true
 
 # TODO - create docker service and install/start service

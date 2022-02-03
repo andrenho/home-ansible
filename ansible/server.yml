@@ -23,6 +23,6 @@
       include_role:
         name: server-data-dir
 
-          #    - name: Configure homeserver
-          #      include_role:
-          #        name: server-homeserver
+    - name: Configure homeserver
+      include_role:
+        name: server-homeserver

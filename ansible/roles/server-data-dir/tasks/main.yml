@@ -1,17 +1,5 @@
 ---
 
-- name: Get list of block devices
-  shell: "lsblk -lno NAME | grep '^{{ volume_device }}$'"
-  register: lsblk
-  when: volume_device is defined
-  ignore_errors: true
-  changed_when: false
-
-- name: Fail if volume device does not exist
-  fail:
-    msg: "/dev/{{ volume_device }} does not exist"
-  when: volume_device is defined and lsblk.rc != 0
-
 - name: Create volume mountpoint
   file: 
     path: "{{ volume_mount_point }}"
@@ -23,11 +11,11 @@
 - name: Mount volume device
   mount:
     path: "{{ volume_mount_point }}"
-    src: "/dev/{{ volume_device }}"
+    src: "UUID={{ volume_uuid }}"
     fstype: ntfs
     opts: "defaults"
     state: mounted
-  when: volume_device is defined
+  when: volume_uuid is defined
 
 - name: Verify if directory `data` exists
   stat:

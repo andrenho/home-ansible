@@ -31,7 +31,7 @@ homeserver_password: !vault |
 # Data device
 
 data_dir: /root/data
-volume_device: sdb1  # (ex. sdb1) comment this line if data device is not in a different partition
+volume_uuid: 04F97C9279D86184
 volume_mount_point: /volume
 
 # E-mail used to request certificate

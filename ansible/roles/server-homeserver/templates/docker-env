@@ -12,6 +12,7 @@ HOST_DOMAIN={{ server_domain }}
 EMAIL={{ ssl_cert_email }}
 
 BACKUP_BUCKET={{ backup_bucket }}
+HTPASSWD_FILE={{ htpasswd_file }}
 
 P=
 CERTBOT_EXTRA_PARAMS=

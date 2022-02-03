@@ -12,6 +12,13 @@
     dest: "{{ docker_env_file }}"
     mode: '0600'
 
+- name: Create .htpasswd file
+  htpasswd:
+    mode: '0600'
+    name: {{ admin_user }}
+    password: {{ admin_password }}
+    path: {{ htpasswd_file }}
+
 - name: Create service
   template:
     src: docker-compose-app.service

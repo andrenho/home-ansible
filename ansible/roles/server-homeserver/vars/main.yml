@@ -1,1 +1,2 @@
 docker_env_file: /root/.docker-env
+htpasswd_file: /root/.htpasswd

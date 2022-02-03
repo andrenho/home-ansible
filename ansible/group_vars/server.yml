@@ -5,7 +5,7 @@ server_domain: homeserver.gamesmith.uk
 # List of speecial packages to be installed in the server
 
 server_packages: [
-  'docker', 'virtualbox', 'python-docker', 'docker-compose', 'ntfs-3g'
+  'docker', 'virtualbox', 'python-docker', 'docker-compose', 'ntfs-3g', 'apache'
 ]
 server_packages_pip: [ 'docker-compose' ]
 

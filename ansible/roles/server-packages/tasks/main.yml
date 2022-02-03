@@ -24,14 +24,13 @@
   pip:
     name: "{{ server_packages_pip }}"
 
-- name: Setup docker server
+- name: Setup services
   service:
     name: "{{ item }}"
     state: started
     enabled: yes
   with_items:
     - docker
-    - cronie
 
 - name: Add admin to group docker
   user:

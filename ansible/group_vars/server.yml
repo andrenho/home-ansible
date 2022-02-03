@@ -4,13 +4,10 @@ server_domain: homeserver.gamesmith.uk
 
 # List of speecial packages to be installed in the server
 
-server_packages: [ 'docker', 'virtualbox', 'certbot', 'cronie', 'python-docker', 'docker-compose' ]
+server_packages: [
+  'docker', 'virtualbox', 'python-docker', 'docker-compose', 'ntfs-3g'
+]
 server_packages_pip: [ 'docker-compose' ]
-
-# Additional parameters for certbot
-
-certbot_extra_args:
-route53_hosted_zone: Z1E6IX3AW27X6H
 
 # Restore backup
 

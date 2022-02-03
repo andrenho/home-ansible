@@ -1,6 +1,16 @@
-VOLUME_DIR={{ volume_mount_point }} 
-DATA_DIR={{ data_dir }}
 USERNAME={{ homeserver_user }}
 PASSWORD={{ homeserver_password }}
+
 DATA_UID={{ data_uid }}
 DATA_GID={{ data_gid }}
+
+VOLUME_DIR={{ volume_mount_point }} 
+DATA_DIR={{ data_dir }}
+
+HOST_DOMAIN={{ server_domain }}
+EMAIL={{ ssl_cert_email }}
+
+P=
+CERTBOT_EXTRA_PARAMS=
+
+# vim: syntax=sh

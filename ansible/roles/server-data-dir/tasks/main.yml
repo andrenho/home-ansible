@@ -24,8 +24,8 @@
   mount:
     path: "{{ volume_mount_point }}"
     src: "/dev/{{ volume_device }}"
-    fstype: vfat
-    opts: "defaults,lazytime,user,exec,uid={{ data_uid }},gid={{ data_gid }},fmask=117,dmask=007"
+    fstype: ntfs
+    opts: "defaults"
     state: mounted
   when: volume_device is defined
 

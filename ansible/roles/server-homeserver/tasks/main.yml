@@ -6,50 +6,21 @@
     dest: "{{ homeserver_path }}"
     version: home-network   # TODO - remove
 
-- name: Build images (this can take a long time)  # TODO - this is not working
-  community.general.docker_compose:
-    build: yes
-    project_src: "{{ homeserver_path }}"
-    state: absent
-    stopped: yes
+- name: Create env file
+  template:
+    src: docker-env
+    dest: "{{ docker_env_file }}"
 
 - name: Create service
   template:
     src: docker-compose-app.service
     dest: /etc/systemd/system/docker-compose-app.service
 
-- name: Create env file
-  template:
-    src: docker-env
-    dest: "{{ docker_env_file }}"
+- name: Start and enable service
+  service:
+    name: docker-compose-app
+      state: stopped
+    enabled: true
+    daemon_reload: true
 
-      #- name: Start and enable service
-      #  service:
-      #    name: docker-compose-app
-      #      state: restarted
-      #    enabled: true
-      #    daemon_reload: true
-
-# TODO - services
-#   - ftp
-#   - sftp
-#   - nginx (partial), partainer
-#   - pihole
-#   - dynamicdns, backup
-#   - mqtt, dnla
-#   - homer (configure yaml file)
-#   - dokuwiki, portainer, openbooks
-#   - ssh, explorer
-#   - sonarr, radarr, bazarr
-#   - cyberchef, audioserve, hoppscotch
-#   - rss, rss-db
-#   - ubooquity, podgrab
-#   - torrent
-#   - plex
-#   - dev
-
-
-# TODO - create password files (nginx, sftp, etc)
-# TODO - configure docker compose
-# TODO - install dash and install/start service
 # TODO - create docker service and install/start service

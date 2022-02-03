@@ -11,6 +11,8 @@ CERTS_DIR={{ certificates_dir }}
 HOST_DOMAIN={{ server_domain }}
 EMAIL={{ ssl_cert_email }}
 
+BACKUP_BUCKET={{ backup_bucket }}
+
 P=
 CERTBOT_EXTRA_PARAMS=
 

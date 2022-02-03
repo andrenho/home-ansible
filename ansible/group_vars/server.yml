@@ -11,8 +11,8 @@ server_packages_pip: [ 'docker-compose' ]
 
 # Restore backup
 
-restore_from: none                 # options: file, s3, none
-restore_file_path: server.tar.bz2       # filename path to restore from (when restore_from == file)
+restore_from: none                               # options: file, s3, none
+restore_file_path: server.tar.bz2                # filename path to restore from (when restore_from == file)
 restore_s3_bucket: homeserver-gamesmith-backup   # S3 bucket to restore from (when restore_from == s3)
 restore_s3_object: data-2022-01-22.tar.bz2       # S3 object in bucket
 
@@ -33,6 +33,10 @@ homeserver_password: !vault |
 data_dir: /root/data
 volume_uuid: 04F97C9279D86184
 volume_mount_point: /volume
+
+# Backup
+
+backup_bucket: homeserver-gamesmith-backup
 
 # Certificates mount point
 

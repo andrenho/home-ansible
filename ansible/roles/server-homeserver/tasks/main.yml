@@ -15,9 +15,9 @@
 - name: Create .htpasswd file
   htpasswd:
     mode: '0600'
-    name: {{ admin_user }}
-    password: {{ admin_password }}
-    path: {{ htpasswd_file }}
+    name: "{{ homeserver_user }}"
+    password: "{{ homeserver_password }}"
+    path: "{{ htpasswd_file }}"
 
 - name: Create service
   template:

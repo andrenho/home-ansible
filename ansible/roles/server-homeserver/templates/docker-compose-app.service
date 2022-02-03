@@ -9,7 +9,7 @@ User=root
 Group=root
 RemainAfterExit=yes
 WorkingDirectory={{ homeserver_path }}
-ExecStart=/usr/bin/docker-compose --env-file {{ docker_env_file }} up -d --remove-orphans
+ExecStart=/usr/bin/docker-compose --env-file {{ docker_env_file }} up --build -d --remove-orphans
 ExecStop=/usr/bin/docker-compose down
 TimeoutStartSec=0
 

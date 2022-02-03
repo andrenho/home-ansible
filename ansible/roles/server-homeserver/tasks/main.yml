@@ -10,6 +10,7 @@
   template:
     src: docker-env
     dest: "{{ docker_env_file }}"
+    mode: '0600'
 
 - name: Create service
   template:
@@ -19,7 +20,7 @@
 - name: Start and enable service
   service:
     name: docker-compose-app
-      state: stopped
+    state: restarted
     enabled: true
     daemon_reload: true
 

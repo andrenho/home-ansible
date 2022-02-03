@@ -5,8 +5,7 @@
     path: "{{ volume_mount_point }}"
     state: directory
     recurse: yes
-    owner: data
-    group: data
+    mode: 0777
 
 - name: Mount volume device
   mount:
@@ -46,7 +45,7 @@
     recurse: yes
     owner: data
     group: data
-    mode: '775'
+    mode: '755'
 
 - name: Uncompress backup
   unarchive:

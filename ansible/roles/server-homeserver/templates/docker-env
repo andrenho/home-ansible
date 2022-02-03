@@ -6,6 +6,7 @@ DATA_GID={{ data_gid }}
 
 VOLUME_DIR={{ volume_mount_point }} 
 DATA_DIR={{ data_dir }}
+CERTS_DIR={{ certificates_dir }}
 
 HOST_DOMAIN={{ server_domain }}
 EMAIL={{ ssl_cert_email }}

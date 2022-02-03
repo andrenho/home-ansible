@@ -34,6 +34,10 @@ data_dir: /root/data
 volume_uuid: 04F97C9279D86184
 volume_mount_point: /volume
 
+# Certificates mount point
+
+certificates_dir: /root/certs
+
 # E-mail used to request certificate
 
 ssl_cert_email: !vault |

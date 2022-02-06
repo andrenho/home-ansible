@@ -1,5 +1,5 @@
 
-name: Ansible lint
+name: Ansible deploy
 
 # Controls when the workflow will run
 on:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   
-  lint:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +30,6 @@ jobs:
           # Optional, SSH known hosts file content
           #  known_hosts: .known_hosts
           vault_password: ${{secrets.VAULT_PASS}}
-          # Optional, galaxy requirements filepath
-          requirements: ./ansible/requirements.yml
-          # Optional, additional flags to pass to ansible-playbook
+          requirements: requirements.yml
           options: |
             -v

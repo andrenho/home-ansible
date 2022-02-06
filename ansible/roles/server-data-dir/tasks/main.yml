@@ -42,7 +42,6 @@
   file:
     path: "{{ data_dir }}"
     state: directory
-    recurse: yes
     owner: data
     group: data
     mode: '755'

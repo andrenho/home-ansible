@@ -19,7 +19,7 @@ jobs:
       - name: Deploy Server
         uses: dawidd6/action-ansible-playbook@v2
         with:
-          playbook: server.yml
+          playbook: site.yml
           directory: ./ansible
           key: ${{secrets.SSH_PRIVATE_KEY}}
           inventory: |

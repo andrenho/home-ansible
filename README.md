@@ -1,4 +1,7 @@
 # home-network
+
+![Deploy (server)](https://github.com/andrenho/home-ansible/actions/workflows/main.yml/badge.svg)
+
 Manages the network and computers/laptops of my home using ansible.
 
 # Install instructions (PRODUCTION)

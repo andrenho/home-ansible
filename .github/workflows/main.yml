@@ -1,0 +1,37 @@
+
+name: Ansible lint
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Deploy Server
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: server.yml
+          directory: ./ansible
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          inventory: |
+            server ansible_host=homeserver.gamesmith.uk ansible_user=andre ansible_port=69
+
+            [server]
+            server
+          # Optional, SSH known hosts file content
+          #  known_hosts: .known_hosts
+          vault_password: ${{secrets.VAULT_PASS}}
+          # Optional, galaxy requirements filepath
+          requirements: ./ansible/requirements.yml
+          # Optional, additional flags to pass to ansible-playbook
+          options: |
+            -v

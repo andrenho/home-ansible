@@ -23,7 +23,7 @@ jobs:
           directory: ./ansible
           key: ${{secrets.SSH_PRIVATE_KEY}}
           inventory: |
-            server ansible_host=homeserver.gamesmith.uk ansible_user=andre ansible_port=${{ secrets.SSH_PORT }}
+            server ansible_host=${{secrets.SSH_HOST}} ansible_user=${{secrets.SSH_USER}} ansible_port=${{ secrets.SSH_PORT }}
 
             [server]
             server

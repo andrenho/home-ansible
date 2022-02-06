@@ -1,0 +1,35 @@
+
+name: Ansible deploy
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Deploy Server
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: site.yml
+          directory: ./ansible
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          inventory: |
+            server ansible_host=${{secrets.SSH_HOST}} ansible_user=${{secrets.SSH_USER}} ansible_port=${{ secrets.SSH_PORT }}
+
+            [server]
+            server
+          # Optional, SSH known hosts file content
+          #  known_hosts: .known_hosts
+          vault_password: ${{secrets.VAULT_PASS}}
+          requirements: requirements.yml
+          options: |
+            -v

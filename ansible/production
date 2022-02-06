@@ -1,11 +1,11 @@
-server ansible_host=192.168.15.2 ansible_user=andre
+homeserver ansible_host=192.168.15.2 ansible_user=andre
 #desktop ansible_host=192.168.15.3
 #terminal ansible_host=192.168.15.4
 #prog-pi ansible_host=192.168.15.5
 #games-pi ansible_host=192.168.15.6
 
 [server]
-server
+homeserver
 
 #[desktop]
 #desktop
@@ -20,6 +20,10 @@ server
 #games-pi
 #desktop
 
-#[dev]
-#server
+[dev-non-x]
+homeserver
 #desktop
+
+#[dev-x]
+#desktop
+

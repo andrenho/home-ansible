@@ -23,10 +23,13 @@ jobs:
           directory: ./ansible
           key: ${{secrets.SSH_PRIVATE_KEY}}
           inventory: |
-            server ansible_host=${{secrets.SSH_HOST}} ansible_user=${{secrets.SSH_USER}} ansible_port=${{ secrets.SSH_PORT }}
+            homeserver ansible_host=${{secrets.SSH_HOST}} ansible_user=${{secrets.SSH_USER}} ansible_port=${{ secrets.SSH_PORT }}
 
             [server]
-            server
+            homeserver
+
+            [dev-non-x]
+            homeserver
           # Optional, SSH known hosts file content
           #  known_hosts: .known_hosts
           vault_password: ${{secrets.VAULT_PASS}}

@@ -1,0 +1,9 @@
+dev_non_x_packages: [
+  'gcc', 'gdb', 'make', 'automake', 'automake', 'gdb', 'autoconf', 'plantuml', 'ruby',
+  'python3', 'nodejs', 'avr-gcc', 'clang', 'linux-headers', 'man', 'colordiff', 'bc',
+  'wget', 'bash-completion', 'tmux', 'mlocate', 'htop', 'mc', 'jq', 'tree', 'sqlite3',
+  'file', 'npm', 'mysql', 'traceroute', 'libtool', 'inetutils', 'mosh', 'lua', 'luajit',
+  'boost', 'docker'
+]
+dev_non_x_aur_packages: []
+dev_non_x_pip_packages: []

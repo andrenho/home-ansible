@@ -1,0 +1,44 @@
+---
+- name: Install and configure non-X development server
+  hosts: dev-non-x
+  become: yes
+
+  tasks:
+    - name: Install server development packages
+      pacman:
+        name: "{{ dev_non_x_packages }}"
+        state: latest
+
+          #- name: Install AUR packages
+          #  kewlfft.aur.aur:
+          #    name: "{{ dev_non_x_aur_packages }}"
+          #    use: yay
+          #    state: present   # TODO - latest
+          #  become_user: "{{ admin_user }}"
+
+          #- name: Install pip development packages
+          #  pip:
+          #    name: "{{ dev_non_x_pip_packages }}"
+
+    - name: Copy welcome message
+      copy:
+        dest: "~/.welcome"
+        content: |
+          Welcome to the development server.
+
+          The ports between 7000 and 7003 are open to the outside world.
+
+          Port 7443 and 7444 are SSL ports open to the outside world. A nginx reverse
+          proxy does the SSL offload to the local ports 7080 and 7081, respectively.
+          They can be accessed at https://api.{{ server_domain }}
+      become_user: "{{ admin_user }}"
+      when: "inventory_hostname == 'homeserver'"
+
+    - name: Print welcome message
+      lineinfile:
+        path: "~/.bashrc"
+        line: cat ~/.welcome
+        insertafter: EOF
+        state: present
+      become_user: "{{ admin_user }}"
+      when: "inventory_hostname == 'homeserver'"

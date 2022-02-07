@@ -1,0 +1,38 @@
+---
+
+- name: Download kindlegen
+  get_url:
+    url: "{{ kindlegen_url }}"
+    dest: /root/kindlegen.tar.gz
+
+- name: Install kindlegen
+  unarchive:
+    src: /root/kindlegen.tar.gz
+    dest: "{{ kindlegen_path }}"
+    creates: "{{ kindlegen_path }}/kindlegen"
+    include: [ 'kindlegen' ]
+    remote_src: true
+
+- name: Clone kindlr
+  git:
+    repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/kindlr.git"
+    dest: /root/kindlr
+
+- name: Install kindlr
+  copy:
+    src: /root/kindlr/kindlr
+    dest: /usr/local/bin/kindlr
+    mode: '0755'
+    remote_src: true
+
+- name: Configure kindlr
+  copy:
+    dest: ~/.kindlr
+    content: "email_to={{ kindle_email_to }}"
+  become_user: "{{ admin_user }}"
+
+- name: Configure mailx
+  template:
+    src: mailrc
+    dest: ~/.mailrc
+  become_user: "{{ admin_user }}"

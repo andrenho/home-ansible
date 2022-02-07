@@ -1,0 +1,5 @@
+set v15-compat ssl-method=auto
+set mta={{ mail_host_url }}
+set smtp-auth=plain
+set smtp-use-starttls
+set from={{ kindle_email_from }}

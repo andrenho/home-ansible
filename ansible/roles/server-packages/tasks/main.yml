@@ -23,10 +23,11 @@
   when: ansible_distribution == 'Archlinux'
 
 - name: Install server packages (void)
-  pacman:
-    name: "{{ server_arch_packages }}"
+  xbps:
+    name: "{{ item }}"
     state: latest
   when: ansible_distribution == 'void'
+  with_items: "{{ server_void_packages }}"
 
 - name: Install pip packages
   pip:

@@ -11,9 +11,10 @@
       when: ansible_distribution == 'Archlinux'
 
     - name: Install server development packages (void)
-      pacman:
-        name: "{{ dev_non_x_void_packages }}"
+      xbps:
+        name: "{{ item }}"
         state: latest
+      with_items: "{{ dev_non_x_void_packages }}"
       when: ansible_distribution == 'void'
 
           #- name: Install AUR packages

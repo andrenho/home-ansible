@@ -10,7 +10,7 @@ dev_non_x_void_packages: [
   'gcc', 'gdb', 'make', 'cmake', 'automake', 'autoconf', 'plantuml', 'ruby',
   'python3', 'nodejs', 'avr-gcc', 'clang', 'linux-headers', 'wget', 'colordiff', 'bc',
   'bash-completion', 'tmux', 'mlocate', 'htop', 'mc', 'jq', 'tree', 'sqlite',
-  'file', 'npm', 'mariadb', 'traceroute', 'libtool', 'inetutils', 'mosh', 'lua',
+  'file', 'mariadb', 'traceroute', 'libtool', 'inetutils', 'mosh', 'lua',
   'LuaJIT', 'boost', 'docker', 'rust', 'cargo'
 ]
 

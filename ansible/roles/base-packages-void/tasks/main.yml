@@ -1,0 +1,13 @@
+- name: Full system upgrade
+  xbps:
+    upgrade: yes
+
+- name: Install required packages
+  xbps:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ void_packages }}"
+
+- name: Install aws-cli-v2
+  include_role:
+    name: deekayen.awscli2

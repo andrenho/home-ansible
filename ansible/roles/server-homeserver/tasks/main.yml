@@ -19,11 +19,11 @@
     password: "{{ homeserver_password }}"
     path: "{{ htpasswd_file }}"
 
-- name: Create service
-  template:
-    src: docker-compose-app.service
-    dest: /etc/systemd/system/docker-compose-app.service
-
+      #- name: Create service
+      #  template:
+      #    src: docker-compose-app.service
+      #    dest: /etc/systemd/system/docker-compose-app.service
+      #
       #- name: Start and enable service
       #  service:
       #    name: docker-compose-app

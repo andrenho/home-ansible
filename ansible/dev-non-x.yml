@@ -4,10 +4,18 @@
   become: yes
 
   tasks:
-    - name: Install server development packages
+    - name: Install server development packages (Arch)
       pacman:
-        name: "{{ dev_non_x_packages }}"
+        name: "{{ dev_non_x_pacman_packages }}"
         state: latest
+      when: ansible_distribution == 'Archlinux'
+
+    - name: Install server development packages (void)
+      xbps:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ dev_non_x_void_packages }}"
+      when: ansible_distribution == 'void'
 
           #- name: Install AUR packages
           #  kewlfft.aur.aur:

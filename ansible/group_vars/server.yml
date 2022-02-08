@@ -4,10 +4,15 @@ server_domain: homeserver.gamesmith.uk
 
 # List of speecial packages to be installed in the server
 
-server_packages: [
+server_arch_packages: [
   'docker', 'virtualbox', 'python-docker', 'docker-compose', 'ntfs-3g', 'apache',
   'mailx'
 ]
+
+server_void_packages: [
+  'docker', 'virtualbox-ose', 'docker-compose', 'ntfs-3g', 'apache-htpasswd'
+]
+
 server_packages_pip: [ 'docker-compose', 'passlib' ]
 
 # Restore backup

@@ -9,9 +9,15 @@
       include_role:
         name: base-admin-user
 
-    - name: Install base packages
+    - name: Install base packages (Arch)
       include_role:
-        name: base-packages
+        name: base-packages-arch
+      when: ansible_distribution == 'Archlinux'
+
+    - name: Install base packages (Void)
+      include_role:
+        name: base-packages-void
+      when: ansible_distribution == 'void'
 
     - name: Configure SSH
       include_role:

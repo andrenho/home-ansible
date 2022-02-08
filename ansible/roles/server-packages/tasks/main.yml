@@ -4,21 +4,29 @@
   register: result
   ignore_errors: true
   changed_when: false
+  when: ansible_distribution == 'Archlinux'
 
 - name: Install iptables-nft
   shell: "yes y | pacman -S iptables-nft"
   args:
     executable: /bin/bash
-  when: result.rc != 0
+  when: ansible_distribution == 'Archlinux' and result.rc != 0
 
 - name: Reboot machine
   reboot:
-  when: result.rc != 0
+  when: ansible_distribution == 'Archlinux' and result.rc != 0
 
-- name: Install server package
+- name: Install server packages (Arch)
   pacman:
-    name: "{{ server_packages }}"
+    name: "{{ server_arch_packages }}"
     state: latest
+  when: ansible_distribution == 'Archlinux'
+
+- name: Install server packages (void)
+  pacman:
+    name: "{{ server_arch_packages }}"
+    state: latest
+  when: ansible_distribution == 'void'
 
 - name: Install pip packages
   pip:

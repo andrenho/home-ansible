@@ -34,6 +34,13 @@ pacman_packages: [
 ]
 aur_packages: [ 'aws-cli-v2-bin' ]
 
+void_packages: [
+  'unzip', 'vim', 'wget', 'bash-completion', 'tmux', 'git', 'mlocate',
+  'bind-utils', 'ntop', 'lsof', 'inetutils', 'mc', 'base-devel', 'jq',
+  'ansible', 'colordiff', 'bc', 'python3-boto', 'python3-pip', 'neofetch',
+  'curl'
+]
+
 # Git credentials to clone repositories
 
 git_username: andrenho

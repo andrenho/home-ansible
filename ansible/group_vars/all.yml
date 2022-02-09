@@ -30,14 +30,16 @@ pacman_packages: [
   'unzip', 'sudo', 'vim', 'wget', 'iwd', 'dhcpcd', 'bash-completion', 'man-db',
   'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
   'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'ansible', 'colordiff',
-  'bc', 'python-boto3', 'python-pip', 'neofetch'
+  'bc', 'python-boto3', 'python-pip', 'neofetch', 'unrar'
 ]
 aur_packages: [ 'aws-cli-v2-bin' ]
 
 void_packages: [
+  'void-repo-nonfree',
   'unzip', 'vim', 'wget', 'bash-completion', 'tmux', 'git', 'mlocate',
   'bind-utils', 'htop', 'lsof', 'inetutils', 'mc', 'base-devel', 'jq',
-  'ansible', 'colordiff', 'bc', 'python3-boto', 'python3-pip', 'neofetch'
+  'ansible', 'colordiff', 'bc', 'python3-boto', 'python3-pip', 'neofetch',
+  'unrar', 'lm_sensors', 'curl'
 ]
 
 # Git credentials to clone repositories

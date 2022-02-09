@@ -10,7 +10,8 @@ server_arch_packages: [
 ]
 
 server_void_packages: [
-  'docker', 'virtualbox-ose', 'docker-compose', 'ntfs-3g', 'apache-htpasswd'
+  'docker', 'virtualbox-ose', 'docker-compose', 'ntfs-3g', 'apache-htpasswd',
+  's-nail'
 ]
 
 server_packages_pip: [ 'docker-compose', 'passlib' ]

@@ -23,6 +23,7 @@
   file:
     path: "/home/{{ admin_user }}/.config/neofetch"
     state: directory
+  become_user: "{{ admin_user }}"
 
 - name: Copy neofetch config file
   copy:

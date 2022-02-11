@@ -19,6 +19,11 @@
         name: base-packages-void
       when: ansible_distribution == 'void'
 
+    - name: Install base packages (Debian)
+      include_role:
+        name: base-packages-debian
+      when: ansible_distribution == 'Debian'
+
     - name: Configure SSH
       include_role:
         name: base-ssh-config

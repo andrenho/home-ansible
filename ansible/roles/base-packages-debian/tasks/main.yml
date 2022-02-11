@@ -1,0 +1,17 @@
+- name: Update packages
+  apt: 
+    name: "*"
+    state: latest
+
+- name: Upgrade OS
+  apt:
+    upgrade: dist
+
+- name: Install required packages
+  apt:
+    name: "{{ debian_packages }}"
+    state: latest
+
+- name: Install aws-cli-v2
+  include_role:
+    name: deekayen.awscli2

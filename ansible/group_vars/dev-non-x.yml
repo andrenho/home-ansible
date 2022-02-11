@@ -3,7 +3,7 @@ dev_non_x_pacman_packages: [
   'python3', 'nodejs', 'avr-gcc', 'clang', 'linux-headers', 'man', 'colordiff', 'bc',
   'wget', 'bash-completion', 'tmux', 'mlocate', 'htop', 'mc', 'jq', 'tree', 'sqlite3',
   'file', 'npm', 'mysql', 'traceroute', 'libtool', 'inetutils', 'mosh', 'lua', 'luajit',
-  'boost', 'docker'
+  'boost', 'docker', 'ansible'
 ]
 
 dev_non_x_void_packages: [
@@ -11,7 +11,7 @@ dev_non_x_void_packages: [
   'python3', 'nodejs', 'avr-gcc', 'clang', 'linux-headers', 'wget', 'colordiff', 'bc',
   'bash-completion', 'tmux', 'mlocate', 'htop', 'mc', 'jq', 'tree', 'sqlite',
   'file', 'mariadb', 'traceroute', 'libtool', 'inetutils', 'mosh', 'lua',
-  'LuaJIT', 'boost', 'docker', 'rust', 'cargo'
+  'LuaJIT', 'boost', 'docker', 'rust', 'cargo', 'ansible'
 ]
 
 dev_non_x_aur_packages: []

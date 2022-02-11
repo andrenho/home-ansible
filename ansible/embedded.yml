@@ -1,0 +1,11 @@
+---
+- name: Install and configure embedded development server
+  hosts: embedded
+  become: yes
+
+  tasks:
+    - name: Install server development packages (Debian)
+      pacman:
+        name: "{{ embedded_debian_packages }}"
+        state: latest
+      when: ansible_distribution == 'Debian'

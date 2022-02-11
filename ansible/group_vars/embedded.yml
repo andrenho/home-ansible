@@ -1,0 +1,4 @@
+ embedded_debian_packages: [
+  'gdb', 'make', 'cmake', 'gcc-avr', 'avr-libc', 'avrdude',
+  'python3', 'wget', 'file', 'lua'
+]

@@ -4,7 +4,7 @@
     dest: ~/src/dotfiles/
   become_user: "{{ admin_user }}"
 
-- name: Copy dotfiles to home
+- name: Copy dotfiles to home (user)
   copy:
     src: "~/src/dotfiles/{{ item }}"
     remote_src: true
@@ -12,12 +12,24 @@
   become_user: "{{ admin_user }}"
   with_items: "{{ dotfiles }}"
 
-- name: Copy dotfiles to home
+- name: Copy dotfiles to home (root)
   copy:
     src: "/home/{{ admin_user }}/src/dotfiles/{{ item }}"
     remote_src: true
     dest: "/root/"
   with_items: "{{ dotfiles }}"
+
+- name: Create neofetch config dir
+  file:
+    path: "/home/{{ admin_user }}/.config/neofetch"
+    state: directory
+
+- name: Copy neofetch config file
+  copy:
+    src: "/home/{{ admin_user }}/src/dotfiles/.neofetch.conf"
+    remote_src: true
+    dest: "/home/{{ admin_user }}/.config/neofetch/config"
+  become_user: "{{ admin_user }}"
 
 - name: Create gitprompt directory
   file:

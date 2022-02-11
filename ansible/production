@@ -25,6 +25,9 @@ homeserver
 homeserver
 #desktop
 
+[embedded]
+pizero
+
 #[dev-x]
 #desktop
 

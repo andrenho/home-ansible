@@ -4,6 +4,5 @@ dotfiles:
   - .inputrc
   - .tmux.conf
   - .vimrc
-  - .neofetch.conf
 gitprompt_url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 gitprompt_path: /usr/share/git-core/contrib/completion

@@ -28,7 +28,7 @@
   copy:
     src: "/home/{{ admin_user }}/src/dotfiles/.neofetch.conf"
     remote_src: true
-    dest: "/home/{{ admin_user }}/.config/neofetch/config"
+    dest: "/home/{{ admin_user }}/.config/neofetch/config.conf"
   become_user: "{{ admin_user }}"
 
 - name: Create gitprompt directory

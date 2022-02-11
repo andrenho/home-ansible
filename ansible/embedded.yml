@@ -4,8 +4,8 @@
   become: yes
 
   tasks:
-    - name: Install server development packages (Debian)
-      pacman:
+    - name: Install embedded development packages (Debian)
+      apt:
         name: "{{ embedded_debian_packages }}"
         state: latest
       when: ansible_distribution == 'Debian'

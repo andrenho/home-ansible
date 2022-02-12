@@ -13,18 +13,18 @@
 
     - name: Copy wallpaper
       copy:
-        src: "wallpaper/{{ ansible_nodename }}.jpg"
+        src: "files/wallpaper/{{ ansible_nodename }}.jpg"
         dest: "/usr/local/share/misc/wallpaper.jpg"
         mode: "0644"
 
     - name: Setup lightdm config file
       copy:
-        src: templates/lightdm-gtk-greeter.conf
+        src: files/config/lightdm-gtk-greeter.conf
         dest: /etc/lightdm/
 
     - name: Install alacritty config file
       copy:
-        src: templates/alacritty.yml
+        src: files/config/alacritty.yml
         dest: "/home/{{ admin_user }}/.alacritty.yml"
       become_user: "{{ admin_user }}"
 

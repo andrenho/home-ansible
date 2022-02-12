@@ -38,7 +38,5 @@
         dest: "/home/{{ admin_user }}/.xprofile"
       become_user: "{{ admin_user }}"
 
-# TODO: install chrome
-# TODO: install Vnc, RDP, some form of remote X, other remote terminal stuff
-# TODO: configure i3
 # TODO: configure WindowMaker
+# TODO: configure i3

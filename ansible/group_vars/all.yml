@@ -31,7 +31,7 @@ pacman_packages: [
   'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
   'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'colordiff',
   'bc', 'python-boto3', 'python-pip', 'neofetch', 'unrar', 'ncdu', 'pv', 'sshpass',
-  'mosh'
+  'mosh', 'elinks', 'gtop'
 ]
 aur_packages: [ 'aws-cli-v2-bin' ]
 

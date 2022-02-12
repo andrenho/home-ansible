@@ -1,5 +1,6 @@
 admin_gui_void_packages: [
   'xorg', 'xinit', 'xterm', 'i3', 'WindowMaker', 'dmenu',
   'lightdm', 'lightdm-gtk3-greeter', 'lightdm-gtk-greeter-settings',
-  'alacritty', 'firefox', 'cool-retro-term', 'xcompmgr', 'chromium'
+  'alacritty', 'firefox', 'cool-retro-term', 'xcompmgr', 'chromium',
+  'remmina', 'tigervnc', 'filezilla', 'hexchat', 'google-fonts-ttf'
 ]

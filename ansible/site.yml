@@ -3,3 +3,4 @@
 - import_playbook: server.yml
 - import_playbook: dev-non-x.yml
 - import_playbook: embedded.yml
+- import_playbook: admin-gui.yml

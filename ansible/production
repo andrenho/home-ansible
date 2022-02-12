@@ -1,34 +1,15 @@
 homeserver ansible_host=192.168.15.2    ansible_user=andre
-pizero     ansible_host=pizero.wagner   ansible_user=andre
-terminal   ansible_host=terminal.wagner ansible_user=andre
-#desktop ansible_host=192.168.15.3
-#terminal ansible_host=192.168.15.4
-#prog-pi ansible_host=192.168.15.5
-#games-pi ansible_host=192.168.15.6
+terminal   ansible_host=terminal
+pizero     ansible_host=pizero
 
 [server]
 homeserver
 
-#[desktop]
-#desktop
-
-#[terminal]
-#terminal
-
-#[prog]
-#prog-pi
-
-#[games]
-#games-pi
-#desktop
+[admin-gui]
+terminal
 
 [dev-non-x]
 homeserver
-#desktop
 
 [embedded]
 pizero
-
-#[dev-x]
-#desktop
-

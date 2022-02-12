@@ -1,0 +1,29 @@
+---
+- name: Install and configure GUI for admin
+  hosts: admin-gui
+  become: yes
+
+  tasks:
+    - name: Install server admin GUI packages (void)
+      xbps:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ admin_gui_void_packages }}"
+      when: ansible_distribution == 'void'
+
+    - name: Copy wallpaper
+      copy:
+        src: "wallpaper/{{ ansible_nodename }}.jpg"
+        dest: "/usr/local/share/misc/wallpaper.jpg"
+        mode: "0644"
+
+    - name: Setup lightdm config file
+      copy:
+        src: templates/lightdm-gtk-greeter.conf
+        dest: /etc/lightdm/
+
+# TODO: install and configure terminal (Alacritty?)
+# TODO: install chrome
+# TODO: install Vnc, RDP, some form of remote X, other remote terminal stuff
+# TODO: configure i3
+# TODO: configure WindowMaker

@@ -22,7 +22,12 @@
         src: templates/lightdm-gtk-greeter.conf
         dest: /etc/lightdm/
 
-# TODO: install and configure terminal (Alacritty?)
+    - name: Install alacritty config file
+      copy:
+        src: templates/alacritty.yml
+        dest: "/home/{{ admin_user }}/.alacritty.yml"
+      become_user: "{{ admin_user }}"
+
 # TODO: install chrome
 # TODO: install Vnc, RDP, some form of remote X, other remote terminal stuff
 # TODO: configure i3

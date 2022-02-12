@@ -38,5 +38,22 @@
         dest: "/home/{{ admin_user }}/.xprofile"
       become_user: "{{ admin_user }}"
 
+    - name: Add user to group audio
+      user:
+        name: "{{ admin_user }}"
+        groups: ['audio', 'bluetooth']
+        append: yes
+
+    - name: Enable dbus service
+      service:
+        name: dbus
+        enabled: true
+
+    - name: Enable bluetooth service
+      service:
+        name: bluetoothd
+        enabled: true
+
+# TODO: edit menu
 # TODO: configure WindowMaker
 # TODO: configure i3

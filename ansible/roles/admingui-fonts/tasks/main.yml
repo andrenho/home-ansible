@@ -1,0 +1,19 @@
+- name: Create font directory
+  file:
+    name: "/home/{{ admin_user }}/.fonts"
+    state: directory
+  become_user: "{{ admin_user }}"
+
+- name: Copy fonts
+  copy:
+    src: "{{ item }}"
+    dest: "/home/{{ admin_user }}/.fonts/"
+  with_fileglob:
+    - "fonts/*"
+  register: r
+
+- name: Update font cache
+  command:
+    cmd: fc-cache -fv
+
+# TODO - install additional fonts

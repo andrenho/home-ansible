@@ -22,6 +22,10 @@
         src: files/config/lightdm-gtk-greeter.conf
         dest: /etc/lightdm/
 
+    - name: Install fonts
+      include_role:
+        name: admingui-fonts
+
     - name: Install alacritty config file
       copy:
         src: files/config/alacritty.yml

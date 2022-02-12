@@ -32,7 +32,12 @@
         dest: "/home/{{ admin_user }}/.alacritty.yml"
       become_user: "{{ admin_user }}"
 
-# TODO: isntall and initialize xcompmgr
+    - name: Install .xprofile
+      copy:
+        src: files/config/xprofile
+        dest: "/home/{{ admin_user }}/.xprofile"
+      become_user: "{{ admin_user }}"
+
 # TODO: install chrome
 # TODO: install Vnc, RDP, some form of remote X, other remote terminal stuff
 # TODO: configure i3

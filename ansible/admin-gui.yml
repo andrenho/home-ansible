@@ -32,6 +32,7 @@
         dest: "/home/{{ admin_user }}/.alacritty.yml"
       become_user: "{{ admin_user }}"
 
+# TODO: isntall and initialize xcompmgr
 # TODO: install chrome
 # TODO: install Vnc, RDP, some form of remote X, other remote terminal stuff
 # TODO: configure i3

@@ -1,5 +1,5 @@
 admin_gui_void_packages: [
   'xorg', 'xinit', 'xterm', 'i3', 'WindowMaker', 'dmenu',
   'lightdm', 'lightdm-gtk3-greeter', 'lightdm-gtk-greeter-settings',
-  'alacritty', 'firefox', 'cool-retro-term'
+  'alacritty', 'firefox', 'cool-retro-term', 'xcompmgr'
 ]

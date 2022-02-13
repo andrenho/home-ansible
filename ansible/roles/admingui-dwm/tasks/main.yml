@@ -16,7 +16,7 @@
 - name: Copy dwm config file
   copy:
     src: files/config.def.h
-    dest: "/home/{{ admin_user }}/src/dwm-{{ dwm_version }}/"
+    dest: "/home/{{ admin_user }}/src/dwm-{{ dwm_version }}/config.h"
   become_user: "{{ admin_user }}"
   register: copy
 

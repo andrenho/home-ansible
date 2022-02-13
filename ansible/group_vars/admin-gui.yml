@@ -4,5 +4,5 @@ admin_gui_void_packages: [
   'alacritty', 'firefox', 'cool-retro-term', 'xcompmgr', 'chromium',
   'remmina', 'tigervnc', 'filezilla', 'hexchat', 'google-fonts-ttf',
   'mpv', 'vlc', 'lollypop', 'evince', 'pulseaudio', 'pavucontrol',
-  'bluez', 'blueman'
+  'bluez', 'blueman', 'libX11-devel', 'libXft-devel', 'libXinerama-devel'
 ]

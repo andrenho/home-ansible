@@ -32,6 +32,12 @@
       include_role:
         name: base-dotfiles
 
+    - name: Install terminfo entries for alacritty
+      copy:
+        src: "{{ item }}"
+        dest: /usr/share/terminfo/a/
+      with_fileglob: files/terminfo/a*
+
     - name: Clone home-ansible repository
       git:
         repo: "https://{{ git_username }}:{{ git_password }}@github.com/andrenho/home-ansible.git"

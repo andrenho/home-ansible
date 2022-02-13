@@ -1,1 +1,2 @@
-dwm_url: https://dl.suckless.org/dwm/dwm-6.3.tar.gz
+dwm_version: 6.3
+dwm_url: "https://dl.suckless.org/dwm/dwm-{{ dwm_version }}.tar.gz"

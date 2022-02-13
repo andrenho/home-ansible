@@ -11,6 +11,10 @@
       with_items: "{{ admin_gui_void_packages }}"
       when: ansible_distribution == 'void'
 
+    - name: Install dwm
+      include_role:
+        name: admingui-dwm
+
     - name: Copy wallpaper
       copy:
         src: "files/wallpaper/{{ ansible_nodename }}.jpg"

@@ -58,6 +58,7 @@
         name: bluetoothd
         enabled: true
 
+# TODO: install wmcpuload, wmmemload, wmclockmon, wmweather
 # TODO: edit menu
 # TODO: configure WindowMaker
 # TODO: configure dwm

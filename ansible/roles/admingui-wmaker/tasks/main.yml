@@ -1,0 +1,43 @@
+- name: Download dockapps repo
+  git:
+    repo: "{{ dockapps_git }}"
+    dest: /home/{{ admin_user }}/src/dockapps
+    force: yes
+  become_user: "{{ admin_user }}"
+
+- name: Install dockapps
+  shell: |
+    autoreconf -fi
+    ./configure
+    make
+    sudo make install
+  args:
+    chdir: "/home/{{ admin_user }}/src/dockapps/{{ item }}"
+    creates: "/usr/local/bin/{{ item }}"
+  with_items:
+    - wmcpuload
+    - wmmemload
+    - wmclock
+  become_user: "{{ admin_user }}"
+
+- name: Install wmdiskmon
+  shell: |
+    wget {{ wmdiskmon_url }} -O wmdiskmon.tar.gz
+    tar zxpvf wmdiskmon.tar.gz
+    cd wmdiskmon*
+    ./configure
+    make
+    sudo make install
+  args:
+    chdir: "/home/{{ admin_user }}/src/"
+    creates: /usr/local/bin/wmdiskmon
+  become_user: "{{ admin_user }}"
+
+- name: Copy config files
+  copy:
+    src: "files/{{ item }}"
+    dest: "/home/{{ admin_user }}/GNUstep/Defaults/{{ item }}"
+  with_items:
+    - WMRootMenu
+    - WMState
+  become_user: "{{ admin_user }}"

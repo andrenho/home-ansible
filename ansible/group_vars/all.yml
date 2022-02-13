@@ -31,7 +31,7 @@ pacman_packages: [
   'man-pages', 'tmux', 'git', 'gcc', 'mlocate', 'dnsutils', 'htop', 'lsof',
   'inetutils', 'mc', 'base-devel', 'jq', 'tree', 'vi', 'colordiff',
   'bc', 'python-boto3', 'python-pip', 'neofetch', 'unrar', 'ncdu', 'pv', 'sshpass',
-  'mosh', 'elinks'
+  'mosh', 'elinks', 'tree'
 ]
 aur_packages: [ 'aws-cli-v2-bin' ]
 
@@ -40,14 +40,15 @@ void_packages: [
   'unzip', 'vim', 'wget', 'bash-completion', 'tmux', 'git', 'mlocate',
   'bind-utils', 'htop', 'lsof', 'inetutils', 'mc', 'base-devel', 'jq',
   'colordiff', 'bc', 'python3-boto', 'python3-pip', 'neofetch',
-  'unrar', 'lm_sensors', 'curl', 'ncdu', 'pv', 'sshpass', 'mosh'
+  'unrar', 'lm_sensors', 'curl', 'ncdu', 'pv', 'sshpass', 'mosh', 'tree'
 ]
 
 debian_packages: [
   'unzip', 'vim', 'wget', 'bash-completion', 'tmux', 'git', 'mlocate',
   'bind9-utils', 'htop', 'lsof', 'mc', 'jq', 'gcc', 'make',
   'colordiff', 'bc', 'python3-boto', 'python3-pip', 'neofetch',
-  'unrar-free', 'lm-sensors', 'curl', 'ncdu', 'pv', 'sshpass', 'mosh'
+  'unrar-free', 'lm-sensors', 'curl', 'ncdu', 'pv', 'sshpass', 'mosh',
+  'tree'
 ]
 
 # Git credentials to clone repositories

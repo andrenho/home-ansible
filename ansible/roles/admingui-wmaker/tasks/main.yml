@@ -18,6 +18,7 @@
     - wmcpuload
     - wmmemload
     - wmclock
+  become_user: "{{ admin_user }}"
 
 - name: Install wmdiskmon
   shell: |
@@ -30,3 +31,13 @@
   args:
     chdir: "/home/{{ admin_user }}/src/"
     creates: /usr/local/bin/wmdiskmon
+  become_user: "{{ admin_user }}"
+
+- nome: Copy config files
+  copy:
+    src: "files/{{ item }}"
+    dest: "/home/{{ admin_user }}/GNUstep/Defaults/{{ item }}"
+  with_items:
+    - WMRootMenu
+    - WMState
+  become_user: "{{ admin_user }}"

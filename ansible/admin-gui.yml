@@ -20,6 +20,7 @@
         src: "files/wallpaper/{{ ansible_nodename }}.jpg"
         dest: "/usr/local/share/misc/wallpaper.jpg"
         mode: "0644"
+        force: no
 
     - name: Setup lightdm config file
       copy:
@@ -57,6 +58,11 @@
       service:
         name: bluetoothd
         enabled: true
+
+    - name: Configure Window Maker
+      include_role:
+        name: admingui-wmaker
+
 
 # TODO: install wmcpuload, wmmemload, wmclockmon, wmweather
 # TODO: edit menu

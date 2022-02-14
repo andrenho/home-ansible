@@ -33,6 +33,12 @@
     creates: /usr/local/bin/wmdiskmon
   become_user: "{{ admin_user }}"
 
+- name: Create config directory
+  file:
+    path: "/home/{{ admin_user }}/GNUstep/Defaults"
+    state: directory
+  become_user: "{{ admin_user }}"
+
 - name: Copy config files
   copy:
     src: "files/{{ item }}"

@@ -10,18 +10,18 @@
         state: latest
       when: ansible_distribution == 'void'
 
-- name: Create admin user
-  user:
-    name: "{{ desktop_user }}"
-    groups: users,data
-    append: yes
-    createhome: yes
-    password: "{{ desktop_password | string | password_hash('sha512', desktop_password_salt | string) }}"
+    - name: Create admin user
+      user:
+        name: "{{ desktop_user }}"
+        groups: users,data
+        append: yes
+        createhome: yes
+        password: "{{ desktop_password | string | password_hash('sha512', desktop_password_salt | string) }}"
 
-- name: Initialize cups service
-  service:
-    name: cupsd
-    state: started
-    enabled: true
+    - name: Initialize cups service
+      service:
+        name: cupsd
+        state: started
+        enabled: true
 
 # TODO - dropbox/mega for backup

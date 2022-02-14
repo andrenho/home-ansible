@@ -1,7 +1,7 @@
 homeserver ansible_host=homeserver
 terminal   ansible_host=terminal
 pizero     ansible_host=pizero
-desktop    ansible_host=desktop
+desktop    ansible_host=desktop.wagner
 
 [server]
 homeserver

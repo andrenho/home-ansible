@@ -23,7 +23,14 @@
 - name: Compile dwm
   make:
     chdir: "/home/{{ admin_user }}/src/dwm-{{ dwm_version }}"
-    target: clean all
+    target: clean
+  become_user: "{{ admin_user }}"
+  when: download.changed or copy.changed
+
+- name: Compile dwm
+  make:
+    chdir: "/home/{{ admin_user }}/src/dwm-{{ dwm_version }}"
+    target: all
   become_user: "{{ admin_user }}"
   when: download.changed or copy.changed
 

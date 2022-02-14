@@ -54,6 +54,11 @@
         name: dbus
         enabled: true
 
+    - name: Enable lightdm service
+      service:
+        name: lightdm
+        enabled: true
+
     - name: Enable bluetooth service
       service:
         name: bluetoothd

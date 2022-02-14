@@ -6,5 +6,5 @@ admin_gui_void_packages: [
   'mpv', 'vlc', 'lollypop', 'evince', 'pulseaudio', 'pavucontrol',
   'bluez', 'blueman', 'libX11-devel', 'libXft-devel', 'libXinerama-devel',
   'libXpm-devel', 'AlsaMixer.app', 'wmnd', 'wmsystemtray', 'qalculate-gtk',
-  'xdgmenumaker', 'eog'
+  'xdgmenumaker', 'eog', 'twm'
 ]

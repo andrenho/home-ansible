@@ -1,15 +1,21 @@
-homeserver ansible_host=192.168.15.2    ansible_user=andre
+homeserver ansible_host=homeserver
 terminal   ansible_host=terminal
 pizero     ansible_host=pizero
+desktop    ansible_host=desktop
 
 [server]
 homeserver
 
 [admin-gui]
 terminal
+desktop
 
 [dev-non-x]
 homeserver
+desktop
 
 [embedded]
 pizero
+
+[desktop]
+desktop

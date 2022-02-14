@@ -62,9 +62,3 @@
     - name: Configure Window Maker
       include_role:
         name: admingui-wmaker
-
-
-# TODO: install wmcpuload, wmmemload, wmclockmon, wmweather
-# TODO: edit menu
-# TODO: configure WindowMaker
-# TODO: configure dwm

@@ -4,3 +4,4 @@
 - import_playbook: dev-non-x.yml
 - import_playbook: embedded.yml
 - import_playbook: admin-gui.yml
+- import_playbook: desktop.yml

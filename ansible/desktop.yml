@@ -1,0 +1,27 @@
+---
+- name: Install and configure desktop
+  hosts: desktop
+  become: yes
+
+  tasks:
+    - name: Install desktop packages (void)
+      xbps:
+        name: "{{ desktop_void_packages }}"
+        state: latest
+      when: ansible_distribution == 'void'
+
+- name: Create admin user
+  user:
+    name: "{{ desktop_user }}"
+    groups: users,data
+    append: yes
+    createhome: yes
+    password: "{{ desktop_password | string | password_hash('sha512', desktop_password_salt | string) }}"
+
+- name: Initialize cups service
+  service:
+    name: cupsd
+    state: started
+    enabled: true
+
+# TODO - dropbox/mega for backup

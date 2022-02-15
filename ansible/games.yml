@@ -1,0 +1,12 @@
+---
+- name: Install and configure games
+  hosts: dev-x
+  become: yes
+
+  tasks:
+    - name: Install games (void)
+      xbps:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ games_void_packages }}"
+      when: ansible_distribution == 'void'

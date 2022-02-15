@@ -3,6 +3,8 @@ games_void_packages: [
   'void-repo-multilib', 'libgcc-32bit', 'libstdc++-32bit', 'libdrm-32bit',
   'libglvnd-32bit', 'mesa-dri-32bit', 'pulseaudio-32bit', 'Cataclysm-DDA',
   'OpenXcom', 'crawl', 'angband', 'chocolate-doom', 'minetest', 'OpenRCT2',
-  'openttd', 'sauerbraten', 'dosbox', 'supertuxkart', 'supertux2', 'ufoai',
-  'unknown-horizons', 'scummvm'
+  'openttd', 'sauerbraten', 'dosbox', 'supertuxkart', 'supertux2', 
+  'unknown-horizons', 'scummvm', 'SMC', 'retroarch', 'stella', 'fs-uae',
+  'stella', 'vice', 'higan', 'openmsx', 'mupen64plus', 'desmume', 'melonDS',
+  'pcsxr', 'snes9x-gtk', 'mame', 'cavestory'
 ]

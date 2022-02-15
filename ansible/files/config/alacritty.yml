@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 12
-    y: 12
+    x: 16
+    y: 16
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -157,7 +157,7 @@ font:
     style: BoldItalic
 
   # Point size
-  size: 12
+  size: 12.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

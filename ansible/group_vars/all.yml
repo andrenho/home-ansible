@@ -49,7 +49,7 @@ debian_packages: [
   'bind9-utils', 'htop', 'lsof', 'mc', 'jq', 'gcc', 'make',
   'colordiff', 'bc', 'python3-boto', 'python3-pip', 'neofetch',
   'unrar-free', 'lm-sensors', 'curl', 'ncdu', 'pv', 'sshpass', 'mosh',
-  'tree', 'nethack'
+  'tree', 'nethack-console'
 ]
 
 # Git credentials to clone repositories

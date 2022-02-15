@@ -1,3 +1,5 @@
 games_void_packages: [
-  'steam'
+  'steam', 'vulkan-loader', 'mesa-vulkan-radeon', 'mesa-vaapi', 'mesa-vdpau',
+  'void-repo-multilib', 'libgcc-32bit', 'libstdc++-32bit', 'libdrm-32bit',
+  'libglvnd-32bit', 'mesa-dri-32bit', 'pulseaudio-32bit'
 ]

@@ -1,7 +1,15 @@
+#
+# Computers
+#
+
 homeserver ansible_host=homeserver
 terminal   ansible_host=terminal
 pizero     ansible_host=pizero
-desktop    ansible_host=desktop.wagner
+desktop    ansible_host=desktop
+
+#
+# Profiles
+#
 
 [server]
 homeserver
@@ -12,6 +20,9 @@ desktop
 
 [dev-non-x]
 homeserver
+desktop
+
+[dev-x]
 desktop
 
 [embedded]

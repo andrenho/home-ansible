@@ -22,7 +22,7 @@ data_gid: 1024
 
 # List of all hostnames in the network (used to configure ssh)
 
-hostnames: [ 'homeserver', 'wagner', 'terminal', 'pizero', 'games-pi' ]
+hostnames: [ 'homeserver', 'desktop', 'terminal', 'pizero', 'retropie' ]
 
 # List of packages to be installed in all computers
 

@@ -1,1 +1,12 @@
-# TODO - xpra
+---
+- name: Install and configure X development server
+  hosts: dev-x
+  become: yes
+
+  tasks:
+    - name: Install X development packages (void)
+      xbps:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ dev_x_void_packages }}"
+      when: ansible_distribution == 'void'

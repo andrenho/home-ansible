@@ -1,0 +1,6 @@
+dev_x_void_packages: [
+  'kdevelop', 'intellij-idea-community-edition', 'vscode', 'gvim',
+  'SDL2-devel', 'SDL2_gfx-devel', 'SDL2_image-devel', 'SDL2_mixer-devel',
+  'SDL2_net-devel', 'SDL2_ttf-devel', 'kcachegrind', 'gtk+3-devel',
+  'love', 'grafx2'
+]

@@ -9,7 +9,7 @@
   template:
     src: docker-env
     dest: "{{ docker_env_file }}"
-    mode: '0600'
+    mode: '0644'
 
 - name: Create .htpasswd file
   htpasswd:

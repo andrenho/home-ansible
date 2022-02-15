@@ -1,7 +1,8 @@
 desktop_void_packages: [
   'xfce4', 'libreoffice', 'xsane', 'cups', 'gimp', 'inkscape',
   'audacity', 'kdenlive', 'openshot', 'qbittorrent', 'gnome-screenshot',
-  'gedit', 'foliate', 'cups-filters', 'system-config-printer'
+  'gedit', 'foliate', 'cups-filters', 'system-config-printer',
+  'libreoffice-i18n-en-US', 'libreoffice-i18n-pt-BR'
 ]
 
 desktop_user: !vault |

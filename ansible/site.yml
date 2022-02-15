@@ -6,3 +6,4 @@
 - import_playbook: admin-gui.yml
 - import_playbook: desktop.yml
 - import_playbook: dev-x.yml
+- import_playbook: games.yml

@@ -37,12 +37,6 @@
         dest: "/home/{{ admin_user }}/.alacritty.yml"
       become_user: "{{ admin_user }}"
 
-    - name: Install .xprofile
-      copy:
-        src: files/config/xprofile
-        dest: "/home/{{ admin_user }}/.xprofile"
-      become_user: "{{ admin_user }}"
-
     - name: Add user to group audio
       user:
         name: "{{ admin_user }}"

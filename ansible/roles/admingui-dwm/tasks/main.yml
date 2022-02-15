@@ -20,7 +20,7 @@
   become_user: "{{ admin_user }}"
   register: copy
 
-- name: Compile dwm
+- name: Clean dwm
   make:
     chdir: "/home/{{ admin_user }}/src/dwm-{{ dwm_version }}"
     target: clean
